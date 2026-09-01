@@ -1,2492 +1,449 @@
-<!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ARAYA SHOP | Handmade Knit</title>
-
-<style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial,"Noto Sans Thai",sans-serif;
-}
-
-body{
-    background:#e7dfd8;
-    color:#382d27;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-}
-
-.app{
-    width:430px;
-    max-width:100%;
-    min-height:100vh;
-    background:#fffaf6;
-    position:relative;
-    overflow:hidden;
-}
-
-/* ================= HEADER ================= */
-
-.header{
-    height:70px;
-    padding:10px 15px;
-    background:#fffaf6;
-    border-bottom:1px solid #eaded5;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    position:sticky;
-    top:0;
-    z-index:50;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:9px;
-}
-
-.logo-icon{
-    width:42px;
-    height:42px;
-    border-radius:14px;
-    background:#8b5b46;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:22px;
-}
-
-.logo-name{
-    font-size:18px;
-    font-weight:bold;
-}
-
-.logo-sub{
-    font-size:8px;
-    color:#a1877b;
-    margin-top:2px;
-}
-
-.header-buttons{
-    display:flex;
-    gap:7px;
-}
-
-.icon-btn{
-    width:38px;
-    height:38px;
-    border:1px solid #e5d8cf;
-    border-radius:12px;
-    background:white;
-    cursor:pointer;
-    font-size:17px;
-}
-
-/* ================= CONTENT ================= */
-
-.content{
-    height:calc(100vh - 70px);
-    overflow-y:auto;
-    padding-bottom:90px;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    margin:15px;
-    min-height:235px;
-    border-radius:24px;
-    overflow:hidden;
-    position:relative;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(57,39,31,.88),
-            rgba(57,39,31,.25)
-        ),
-        url("https://i.etsystatic.com/44715247/r/il/d481c4/7706522484/il_fullxfull.7706522484_6ecy.jpg")
-        center/cover;
-
-    color:white;
-    padding:25px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-
-.hero small{
-    font-size:10px;
-    letter-spacing:.5px;
-}
-
-.hero h1{
-    font-size:29px;
-    line-height:1.25;
-    margin:8px 0;
-}
-
-.hero p{
-    width:75%;
-    font-size:11px;
-    line-height:1.7;
-}
-
-.hero button{
-    width:175px;
-    margin-top:14px;
-    padding:11px;
-    border:0;
-    border-radius:12px;
-    background:white;
-    color:#754d3c;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-/* ================= QUICK ================= */
-
-.quick{
-    display:flex;
-    gap:10px;
-    overflow-x:auto;
-    padding:0 15px 18px;
-}
-
-.quick-card{
-    min-width:125px;
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:17px;
-    padding:13px 11px;
-    cursor:pointer;
-}
-
-.quick-card:hover{
-    transform:translateY(-2px);
-}
-
-.qicon{
-    font-size:24px;
-}
-
-.quick-card b{
-    display:block;
-    font-size:11px;
-    margin-top:6px;
-}
-
-.quick-card span{
-    display:block;
-    font-size:9px;
-    color:#998177;
-    margin-top:3px;
-}
-
-/* ================= TITLE ================= */
-
-.section-title{
-    padding:5px 16px 12px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.section-title h2{
-    font-size:18px;
-}
-
-.section-title button{
-    border:0;
-    background:none;
-    color:#8b5b46;
-    font-size:10px;
-    cursor:pointer;
-}
-
-/* ================= CATEGORY ================= */
-
-.categories{
-    display:flex;
-    gap:8px;
-    overflow-x:auto;
-    padding:0 16px 18px;
-}
-
-.category{
-    white-space:nowrap;
-    padding:8px 14px;
-    background:#f0e7e1;
-    border-radius:20px;
-    font-size:10px;
-    cursor:pointer;
-}
-
-.category.active{
-    background:#8b5b46;
-    color:white;
-}
-
-/* ================= PRODUCTS ================= */
-
-.products{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    padding:0 16px 20px;
-}
-
-.product{
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:18px;
-    overflow:hidden;
-    position:relative;
-}
-
-.product img{
-    width:100%;
-    height:170px;
-    display:block;
-    object-fit:cover;
-    background:#eee5df;
-}
-
-.favorite{
-    position:absolute;
-    right:8px;
-    top:8px;
-    width:32px;
-    height:32px;
-    border:0;
-    border-radius:50%;
-    background:white;
-    cursor:pointer;
-    font-size:18px;
-    z-index:2;
-}
-
-.product-info{
-    padding:10px;
-}
-
-.tag{
-    display:inline-block;
-    background:#f0dfd5;
-    color:#815744;
-    padding:4px 7px;
-    border-radius:7px;
-    font-size:8px;
-}
-
-.product-name{
-    font-weight:bold;
-    font-size:12px;
-    margin-top:7px;
-}
-
-.maker{
-    font-size:9px;
-    color:#9a8277;
-    margin-top:4px;
-}
-
-.price{
-    color:#8b5b46;
-    font-size:16px;
-    font-weight:bold;
-    margin-top:8px;
-}
-
-.product button.buy{
-    width:100%;
-    margin-top:8px;
-    padding:9px;
-    border:0;
-    background:#8b5b46;
-    color:white;
-    border-radius:9px;
-    cursor:pointer;
-    font-size:10px;
-}
-
-/* ================= EXPERIENCE ================= */
-
-.experience{
-    margin:0 16px 20px;
-    background:#f1e5dd;
-    padding:18px;
-    border-radius:20px;
-}
-
-.experience b{
-    font-size:14px;
-}
-
-.experience p{
-    font-size:10px;
-    color:#876f64;
-    line-height:1.7;
-    margin-top:7px;
-}
-
-.secondary{
-    width:100%;
-    border:1px solid #8b5b46;
-    background:white;
-    color:#8b5b46;
-    padding:12px;
-    border-radius:12px;
-    cursor:pointer;
-    font-weight:bold;
-    margin-top:10px;
-}
-
-/* ================= BOTTOM NAV ================= */
-
-.bottom-nav{
-    position:fixed;
-    bottom:0;
-    width:430px;
-    max-width:100%;
-    height:72px;
-    background:rgba(255,250,246,.98);
-    border-top:1px solid #eaded5;
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-    z-index:60;
-}
-
-.nav-item{
-    text-align:center;
-    color:#9b8175;
-    font-size:9px;
-    cursor:pointer;
-}
-
-.nav-icon{
-    font-size:21px;
-    margin-bottom:4px;
-}
-
-.nav-item.active{
-    color:#8b5b46;
-    font-weight:bold;
-}
-
-/* ================= MODAL ================= */
-
-.modal{
-    position:fixed;
-    inset:0;
-    background:rgba(40,28,22,.62);
-    display:none;
-    align-items:flex-end;
-    justify-content:center;
-    z-index:100;
-}
-
-.modal-box{
-    width:430px;
-    max-width:100%;
-    max-height:94vh;
-    overflow-y:auto;
-    background:#fffaf6;
-    border-radius:27px 27px 0 0;
-    padding:20px;
-    animation:slideUp .25s ease;
-}
-
-@keyframes slideUp{
-    from{
-        transform:translateY(100%);
-    }
-    to{
-        transform:translateY(0);
-    }
-}
-
-.back{
-    border:0;
-    background:#f0e7e1;
-    color:#694b3d;
-    padding:9px 14px;
-    border-radius:10px;
-    cursor:pointer;
-    font-size:11px;
-    margin-bottom:14px;
-}
-
-/* ================= DETAIL ================= */
-
-.detail-image{
-    width:100%;
-    height:290px;
-    object-fit:cover;
-    border-radius:18px;
-    background:#eee5df;
-}
-
-.detail-title{
-    font-size:22px;
-    font-weight:bold;
-    margin-top:12px;
-}
-
-.detail-maker{
-    font-size:10px;
-    color:#957c70;
-    margin-top:4px;
-}
-
-.detail-price{
-    font-size:22px;
-    color:#8b5b46;
-    font-weight:bold;
-    margin-top:7px;
-}
-
-.description{
-    font-size:11px;
-    line-height:1.7;
-    color:#786960;
-    margin-top:9px;
-}
-
-.primary{
-    width:100%;
-    border:0;
-    background:#8b5b46;
-    color:white;
-    padding:13px;
-    border-radius:12px;
-    cursor:pointer;
-    font-weight:bold;
-    margin-top:12px;
-}
-
-/* ================= CUSTOM COLOR LAB ================= */
-
-.custom-preview{
-    background:#f1e8e1;
-    border-radius:22px;
-    padding:20px;
-    margin-top:15px;
-    text-align:center;
-}
-
-/* กระเป๋าตัวอย่าง */
-
-.preview-bag{
-    width:195px;
-    height:155px;
-    margin:50px auto 15px;
-    background:#e5a48e;
-    border-radius:22px 22px 28px 28px;
-    position:relative;
-
-    box-shadow:
-        inset 0 0 0 7px rgba(255,255,255,.18),
-        0 12px 22px rgba(80,50,40,.18);
-
-    transition:.35s;
-}
-
-/* หูกระเป๋า */
-
-.preview-bag::before{
-    content:"";
-    position:absolute;
-
-    width:105px;
-    height:58px;
-
-    border:12px solid #e5a48e;
-    border-bottom:0;
-
-    border-radius:70px 70px 0 0;
-
-    left:33px;
-    top:-48px;
-
-    transition:.35s;
-}
-
-/* ลายถัก */
-
-.preview-bag::after{
-    content:"✿  ✿  ✿";
-    position:absolute;
-    left:15px;
-    right:15px;
-    top:55px;
-
-    font-size:29px;
-    color:#fff8ee;
-    letter-spacing:4px;
-}
-
-/* ================= YARN ================= */
-
-.yarn-title{
-    display:flex;
-    justify-content:space-between;
-    margin-top:20px;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.selected-name{
-    color:#8b5b46;
-}
-
-.yarn-grid{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:12px;
-    margin-top:14px;
-}
-
-.yarn{
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    position:relative;
-    cursor:pointer;
-
-    box-shadow:
-        inset 4px 4px 8px rgba(255,255,255,.45),
-        inset -5px -5px 8px rgba(0,0,0,.14),
-        0 2px 5px rgba(0,0,0,.15);
-
-    transition:.2s;
-}
-
-.yarn:hover{
-    transform:scale(1.1);
-}
-
-.yarn::before{
-    content:"";
-    position:absolute;
-    inset:8px;
-    border:2px solid rgba(255,255,255,.28);
-    border-radius:50%;
-}
-
-.yarn::after{
-    content:"";
-    position:absolute;
-    width:13px;
-    height:13px;
-    background:rgba(255,255,255,.22);
-    border-radius:50%;
-    left:16px;
-    top:16px;
-}
-
-.yarn.selected{
-    outline:3px solid #8b5b46;
-    outline-offset:3px;
-    transform:scale(1.08);
-}
-
-/* COLORS */
-
-.cream{background:#eee2cf;}
-.beige{background:#c8a889;}
-.peach{background:#e5a48e;}
-.pink{background:#e29aa7;}
-.red{background:#b9444e;}
-.orange{background:#e8903e;}
-.yellow{background:#e5c55e;}
-.sage{background:#9eaf82;}
-.green{background:#58785c;}
-.mint{background:#8fc0b1;}
-.blue{background:#7599ba;}
-.sky{background:#9dc8d6;}
-.purple{background:#8d7cae;}
-.lavender{background:#b7a2ca;}
-.brown{background:#79584a;}
-.mocha{background:#9a7561;}
-.gray{background:#96928e;}
-.black{background:#353434;}
-
-/* ================= COLOR INFO ================= */
-
-.color-preview{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:15px;
-    padding:12px;
-    margin-top:15px;
-}
-
-.color-ball{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-
-    box-shadow:
-        inset 5px 5px 10px rgba(255,255,255,.45),
-        inset -5px -5px 10px rgba(0,0,0,.15);
-}
-
-.color-preview b{
-    font-size:12px;
-}
-
-.color-preview span{
-    display:block;
-    color:#92796c;
-    font-size:9px;
-    margin-top:4px;
-}
-
-/* ================= PATTERN ================= */
-
-.pattern-title{
-    margin-top:20px;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.patterns{
-    display:flex;
-    gap:9px;
-    margin-top:10px;
-}
-
-.pattern{
-    flex:1;
-    border:1px solid #e3d5cb;
-    background:white;
-    border-radius:12px;
-    padding:10px;
-    text-align:center;
-    cursor:pointer;
-    font-size:10px;
-}
-
-.pattern.active{
-    background:#8b5b46;
-    color:white;
-}
-
-/* ================= COLOR MATCH ================= */
-
-.palette{
-    height:70px;
-    display:flex;
-    border-radius:15px;
-    overflow:hidden;
-    margin-top:15px;
-}
-
-.palette div{
-    flex:1;
-}
-
-.recommend{
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:16px;
-    padding:14px;
-    margin-top:15px;
-}
-
-.recommend h3{
-    font-size:13px;
-}
-
-.recommend p{
-    font-size:10px;
-    color:#8f786d;
-    line-height:1.7;
-    margin-top:6px;
-}
-
-/* ================= MAKER ================= */
-
-.maker-card{
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:18px;
-    padding:15px;
-    display:flex;
-    gap:12px;
-    margin-top:15px;
-}
-
-.avatar{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    background:#ddc0ae;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:27px;
-}
-
-.maker-card b{
-    font-size:14px;
-}
-
-.maker-card p{
-    font-size:10px;
-    color:#91796e;
-    margin-top:5px;
-}
-
-/* ================= TIMELINE ================= */
-
-.timeline{
-    margin-top:18px;
-}
-
-.timeline-item{
-    display:flex;
-    gap:12px;
-    margin-bottom:18px;
-}
-
-.timeline-icon{
-    width:36px;
-    height:36px;
-    background:#eadbd1;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-}
-
-.timeline-text b{
-    font-size:12px;
-}
-
-.timeline-text p{
-    font-size:10px;
-    color:#8e786d;
-    margin-top:4px;
-}
-
-/* ================= STATUS ================= */
-
-.status{
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:18px;
-    padding:15px;
-    margin-top:15px;
-}
-
-.status-top{
-    display:flex;
-    justify-content:space-between;
-    font-size:11px;
-}
-
-.progress{
-    height:8px;
-    background:#eaded5;
-    border-radius:10px;
-    margin-top:13px;
-    overflow:hidden;
-}
-
-.progress div{
-    width:72%;
-    height:100%;
-    background:#8b5b46;
-}
-
-/* ================= CART ================= */
-
-.cart-item{
-    display:flex;
-    gap:10px;
-    padding:12px 0;
-    border-bottom:1px solid #eaded5;
-}
-
-.cart-item img{
-    width:75px;
-    height:75px;
-    object-fit:cover;
-    border-radius:12px;
-    background:#eee5df;
-}
-
-.cart-info{
-    flex:1;
-}Here's the visual code for the e-commerce interface, including the recommended knitted products with distinct designs and correct descriptive tags to avoid confusion.
-
 ```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ARAYA SHOP | Handmade Knit</title>
+<title>ARAYA SHOP - Handmade Crochet</title>
 
 <style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial,"Noto Sans Thai",sans-serif;
-}
-
+*{box-sizing:border-box}
 body{
-    background:#e7dfd8;
-    color:#382d27;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
+    margin:0;
+    font-family:Arial,Tahoma,sans-serif;
+    background:#e9ddd6;
+    color:#49372f;
 }
-
+button,input,textarea{font-family:inherit}
+button{cursor:pointer}
 .app{
     width:430px;
     max-width:100%;
     min-height:100vh;
-    background:#fffaf6;
-    position:relative;
-    overflow:hidden;
+    margin:auto;
+    background:#fffaf7;
+    padding-bottom:85px;
 }
-
-/* ================= HEADER ================= */
-
 .header{
-    height:70px;
-    padding:10px 15px;
-    background:#fffaf6;
-    border-bottom:1px solid #eaded5;
+    height:68px;
     display:flex;
     align-items:center;
     justify-content:space-between;
+    padding:10px 15px;
+    background:#fffaf7;
+    border-bottom:1px solid #eaded7;
     position:sticky;
     top:0;
     z-index:50;
 }
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:9px;
-}
-
+.logo{display:flex;align-items:center;gap:9px}
 .logo-icon{
-    width:42px;
-    height:42px;
-    border-radius:14px;
-    background:#8b5b46;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:22px;
-}
-
-.logo-name{
-    font-size:18px;
+    width:42px;height:42px;border-radius:13px;
+    background:#8b5c48;color:#fff;
+    display:flex;align-items:center;justify-content:center;
     font-weight:bold;
 }
-
-.logo-sub{
-    font-size:8px;
-    color:#a1877b;
-    margin-top:2px;
-}
-
-.header-buttons{
-    display:flex;
-    gap:7px;
-}
-
+.logo-name{font-size:17px;font-weight:bold}
+.logo-sub{font-size:8px;color:#9b8479;letter-spacing:1px}
+.header-buttons{display:flex;gap:7px}
 .icon-btn{
-    width:38px;
-    height:38px;
-    border:1px solid #e5d8cf;
-    border-radius:12px;
-    background:white;
-    cursor:pointer;
-    font-size:17px;
+    width:39px;height:39px;border:1px solid #e3d6cf;
+    background:white;border-radius:12px;position:relative
 }
-
-/* ================= CONTENT ================= */
-
-.content{
-    height:calc(100vh - 70px);
-    overflow-y:auto;
-    padding-bottom:90px;
+.badge{
+    position:absolute;top:-5px;right:-5px;
+    width:18px;height:18px;border-radius:50%;
+    background:#b65c68;color:white;font-size:9px;
+    display:flex;align-items:center;justify-content:center;
 }
-
-/* ================= HERO ================= */
-
+.page{display:none}
+.page.active{display:block}
+.inner{padding:15px}
 .hero{
-    margin:15px;
-    min-height:235px;
-    border-radius:24px;
-    overflow:hidden;
-    position:relative;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(57,39,31,.88),
-            rgba(57,39,31,.25)
-        ),
-        url("[https://i.etsystatic.com/44715247/r/il/d481c4/7706522484/il_fullxfull.7706522484_6ecy.jpg](https://i.etsystatic.com/44715247/r/il/d481c4/7706522484/il_fullxfull.7706522484_6ecy.jpg)")
-        center/cover;
-
-    color:white;
-    padding:25px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+    margin:15px;padding:25px;min-height:235px;
+    border-radius:24px;color:white;
+    background:linear-gradient(135deg,#765341,#c39b83);
+    position:relative;overflow:hidden;
 }
-
-.hero small{
-    font-size:10px;
-    letter-spacing:.5px;
+.hero:after{
+    content:"🧶";position:absolute;right:-20px;bottom:-35px;
+    font-size:150px;opacity:.13
 }
-
-.hero h1{
-    font-size:29px;
-    line-height:1.25;
-    margin:8px 0;
+.hero-small{font-size:9px;letter-spacing:1px}
+.hero h1{font-size:27px;line-height:1.4;margin:12px 0 8px}
+.hero p{width:78%;font-size:10px;line-height:1.8}
+.hero-buttons{display:flex;gap:8px;margin-top:17px}
+.primary{
+    border:0;background:#8b5c48;color:white;
+    border-radius:11px;padding:11px 15px;
+    font-size:10px;font-weight:bold
 }
-
-.hero p{
-    width:75%;
-    font-size:11px;
-    line-height:1.7;
+.secondary{
+    border:1px solid #d9cbc3;background:white;color:#8b5c48;
+    border-radius:11px;padding:10px 14px;font-size:10px
 }
-
-.hero button{
-    width:175px;
-    margin-top:14px;
-    padding:11px;
-    border:0;
-    border-radius:12px;
-    background:white;
-    color:#754d3c;
-    font-weight:bold;
-    cursor:pointer;
+.back-btn{
+    border:1px solid #dfd1c9;background:white;
+    border-radius:10px;padding:9px 13px;
+    font-size:10px;margin-bottom:13px
 }
-
-/* ================= QUICK ================= */
-
-.quick{
-    display:flex;
-    gap:10px;
-    overflow-x:auto;
-    padding:0 15px 18px;
+.search{
+    margin:0 15px 16px;height:45px;
+    display:flex;align-items:center;padding:0 13px;
+    gap:7px;border:1px solid #eaded7;
+    border-radius:14px;background:white
 }
-
-.quick-card{
-    min-width:125px;
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:17px;
-    padding:13px 11px;
-    cursor:pointer;
+.search input{width:100%;border:0;outline:0;font-size:11px}
+.section{padding:0 15px}
+.section-head{
+    display:flex;align-items:center;
+    justify-content:space-between;margin-bottom:12px
 }
-
-.quick-card:hover{
-    transform:translateY(-2px);
+.section-head h2{font-size:17px;margin:0}
+.section-head button{
+    border:0;background:none;color:#93634f;font-size:9px
 }
-
-.qicon{
-    font-size:24px;
-}
-
-.quick-card b{
-    display:block;
-    font-size:11px;
-    margin-top:6px;
-}
-
-.quick-card span{
-    display:block;
-    font-size:9px;
-    color:#998177;
-    margin-top:3px;
-}
-
-/* ================= TITLE ================= */
-
-.section-title{
-    padding:5px 16px 12px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.section-title h2{
-    font-size:18px;
-}
-
-.section-title button{
-    border:0;
-    background:none;
-    color:#8b5b46;
-    font-size:10px;
-    cursor:pointer;
-}
-
-/* ================= CATEGORY ================= */
-
 .categories{
-    display:flex;
-    gap:8px;
-    overflow-x:auto;
-    padding:0 16px 18px;
+    display:flex;gap:8px;overflow-x:auto;padding-bottom:15px
 }
-
 .category{
-    white-space:nowrap;
-    padding:8px 14px;
-    background:#f0e7e1;
-    border-radius:20px;
-    font-size:10px;
-    cursor:pointer;
+    white-space:nowrap;border:0;border-radius:20px;
+    background:#efe4dd;color:#6d5448;
+    padding:9px 14px;font-size:9px
 }
-
-.category.active{
-    background:#8b5b46;
-    color:white;
+.category.active{background:#8b5c48;color:white}
+.promo{
+    margin:0 15px 20px;padding:15px;border-radius:17px;
+    background:#f1e3da;display:flex;
+    justify-content:space-between;align-items:center
 }
-
-/* ================= PRODUCTS ================= */
-
+.promo strong{font-size:12px}
+.promo span{
+    display:block;margin-top:5px;color:#917a70;font-size:9px
+}
+.promo-icon{font-size:38px}
 .products{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:12px;
-    padding:0 16px 20px;
+    gap:12px
 }
-
-.product{
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:18px;
-    overflow:hidden;
-    position:relative;
+.product-card{
+    background:white;border:1px solid #eaded7;
+    border-radius:17px;overflow:hidden;
+    box-shadow:0 5px 16px rgba(65,40,25,.07)
 }
-
-.product img{
-    width:100%;
-    height:170px;
-    display:block;
-    object-fit:cover;
-    background:#eee5df;
+.product-photo{
+    height:190px;background:#f3eee9;
+    position:relative;overflow:hidden;
+    display:flex;align-items:center;justify-content:center
 }
-
-.favorite{
-    position:absolute;
-    right:8px;
-    top:8px;
-    width:32px;
-    height:32px;
-    border:0;
-    border-radius:50%;
-    background:white;
-    cursor:pointer;
-    font-size:18px;
-    z-index:2;
+.product-photo img{
+    width:100%;height:100%;object-fit:contain;display:block
 }
-
-.product-info{
-    padding:10px;
+.favorite-btn{
+    position:absolute;top:8px;right:8px;z-index:5;
+    width:31px;height:31px;border:0;
+    border-radius:50%;background:white;font-size:17px
 }
-
+.product-info{padding:10px}
 .tag{
-    display:inline-block;
-    background:#f0dfd5;
-    color:#815744;
-    padding:4px 7px;
-    border-radius:7px;
-    font-size:8px;
+    display:inline-block;padding:4px 6px;border-radius:6px;
+    background:#f2dfd5;color:#855b49;font-size:7px
 }
-
 .product-name{
-    font-weight:bold;
-    font-size:12px;
-    margin-top:7px;
+    font-size:11px;font-weight:bold;line-height:1.5;
+    min-height:34px;margin-top:7px
+}
+.product-desc{
+    font-size:8px;color:#927d73;
+    line-height:1.5;min-height:25px
+}
+.product-bottom{
+    display:flex;align-items:center;
+    justify-content:space-between;margin-top:8px
+}
+.price{color:#8b5c48;font-size:15px;font-weight:bold}
+.view-btn{
+    border:0;border-radius:9px;padding:7px 9px;
+    background:#8b5c48;color:white;font-size:8px
 }
 
-.maker{
-    font-size:9px;
-    color:#9a8277;
-    margin-top:4px;
+/* DESIGNER */
+.designer-title{font-size:21px;margin:5px 0}
+.designer-sub{color:#917c72;font-size:10px;line-height:1.8}
+.design-photo{
+    height:320px;margin-top:15px;border-radius:20px;
+    background:#f2ede8;overflow:hidden;position:relative;
+    display:flex;justify-content:center;align-items:center
 }
-
-.price{
-    color:#8b5b46;
-    font-size:16px;
-    font-weight:bold;
-    margin-top:8px;
+.design-photo img{
+    width:100%;height:100%;object-fit:contain;
+    position:relative;z-index:2
 }
-
-.product button.buy{
-    width:100%;
-    margin-top:8px;
-    padding:9px;
-    border:0;
-    background:#8b5b46;
-    color:white;
-    border-radius:9px;
-    cursor:pointer;
-    font-size:10px;
-}
-
-/* ================= EXPERIENCE ================= */
-
-.experience{
-    margin:0 16px 20px;
-    background:#f1e5dd;
-    padding:18px;
-    border-radius:20px;
-}
-
-.experience b{
-    font-size:14px;
-}
-
-.experience p{
-    font-size:10px;
-    color:#876f64;
-    line-height:1.7;
-    margin-top:7px;
-}
-
-.secondary{
-    width:100%;
-    border:1px solid #8b5b46;
-    background:white;
-    color:#8b5b46;
-    padding:12px;
-    border-radius:12px;
-    cursor:pointer;
-    font-weight:bold;
-    margin-top:10px;
-}
-
-/* ================= BOTTOM NAV ================= */
-
-.bottom-nav{
-    position:fixed;
-    bottom:0;
-    width:430px;
-    max-width:100%;
-    height:72px;
-    background:rgba(255,250,246,.98);
-    border-top:1px solid #eaded5;
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-    z-index:60;
-}
-
-.nav-item{
-    text-align:center;
-    color:#9b8175;
-    font-size:9px;
-    cursor:pointer;
-}
-
-.nav-icon{
-    font-size:21px;
-    margin-bottom:4px;
-}
-
-.nav-item.active{
-    color:#8b5b46;
-    font-weight:bold;
-}
-
-/* ================= MODAL ================= */
-
-.modal{
-    position:fixed;
-    inset:0;
-    background:rgba(40,28,22,.62);
-    display:none;
-    align-items:flex-end;
-    justify-content:center;
-    z-index:100;
-}
-
-.modal-box{
-    width:430px;
-    max-width:100%;
-    max-height:94vh;
-    overflow-y:auto;
-    background:#fffaf6;
-    border-radius:27px 27px 0 0;
-    padding:20px;
-    animation:slideUp .25s ease;
-}
-
-@keyframes slideUp{
-    from{
-        transform:translateY(100%);
-    }
-    to{
-        transform:translateY(0);
-    }
-}
-
-.back{
-    border:0;
-    background:#f0e7e1;
-    color:#694b3d;
-    padding:9px 14px;
-    border-radius:10px;
-    cursor:pointer;
-    font-size:11px;
-    margin-bottom:14px;
-}
-
-/* ================= DETAIL ================= */
-
-.detail-image{
-    width:100%;
-    height:290px;
-    object-fit:cover;
-    border-radius:18px;
-    background:#eee5df;
-}
-
-.detail-title{
-    font-size:22px;
-    font-weight:bold;
-    margin-top:12px;
-}
-
-.detail-maker{
-    font-size:10px;
-    color:#957c70;
-    margin-top:4px;
-}
-
-.detail-price{
-    font-size:22px;
-    color:#8b5b46;
-    font-weight:bold;
-    margin-top:7px;
-}
-
-.description{
-    font-size:11px;
-    line-height:1.7;
-    color:#786960;
-    margin-top:9px;
-}
-
-.primary{
-    width:100%;
-    border:0;
-    background:#8b5b46;
-    color:white;
-    padding:13px;
-    border-radius:12px;
-    cursor:pointer;
-    font-weight:bold;
-    margin-top:12px;
-}
-
-/* ================= CUSTOM COLOR LAB ================= */
-
-.custom-preview{
-    background:#f1e8e1;
-    border-radius:22px;
-    padding:20px;
-    margin-top:15px;
-    text-align:center;
-}
-
-/* กระเป๋าตัวอย่าง */
-
-.preview-bag{
-    width:195px;
-    height:155px;
-    margin:50px auto 15px;
-    background:#e5a48e;
-    border-radius:22px 22px 28px 28px;
-    position:relative;
-
-    box-shadow:
-        inset 0 0 0 7px rgba(255,255,255,.18),
-        0 12px 22px rgba(80,50,40,.18);
-
-    transition:.35s;
-}
-
-/* หูกระเป๋า */
-
-.preview-bag::before{
-    content:"";
-    position:absolute;
-
-    width:105px;
-    height:58px;
-
-    border:12px solid #e5a48e;
-    border-bottom:0;
-
-    border-radius:70px 70px 0 0;
-
-    left:33px;
-    top:-48px;
-
-    transition:.35s;
-}
-
-/* ลายถัก */
-
-.preview-bag::after{
-    content:"✿  ✿  ✿";
-    position:absolute;
-    left:15px;
-    right:15px;
-    top:55px;
-
-    font-size:29px;
-    color:#fff8ee;
-    letter-spacing:4px;
-}
-
-/* ================= YARN ================= */
-
-.yarn-title{
-    display:flex;
-    justify-content:space-between;
-    margin-top:20px;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.selected-name{
-    color:#8b5b46;
-}
-
-.yarn-grid{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:12px;
-    margin-top:14px;
-}
-
-.yarn{
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    position:relative;
-    cursor:pointer;
-
-    box-shadow:
-        inset 4px 4px 8px rgba(255,255,255,.45),
-        inset -5px -5px 8px rgba(0,0,0,.14),
-        0 2px 5px rgba(0,0,0,.15);
-
-    transition:.2s;
-}
-
-.yarn:hover{
-    transform:scale(1.1);
-}
-
-.yarn::before{
-    content:"";
-    position:absolute;
-    inset:8px;
-    border:2px solid rgba(255,255,255,.28);
-    border-radius:50%;
-}
-
-.yarn::after{
-    content:"";
-    position:absolute;
-    width:13px;
-    height:13px;
-    background:rgba(255,255,255,.22);
-    border-radius:50%;
-    left:16px;
-    top:16px;
-}
-
-.yarn.selected{
-    outline:3px solid #8b5b46;
-    outline-offset:3px;
-    transform:scale(1.08);
-}
-
-/* COLORS */
-
-.cream{background:#eee2cf;}
-.beige{background:#c8a889;}
-.peach{background:#e5a48e;}
-.pink{background:#e29aa7;}
-.red{background:#b9444e;}
-.orange{background:#e8903e;}
-.yellow{background:#e5c55e;}
-.sage{background:#9eaf82;}
-.green{background:#58785c;}
-.mint{background:#8fc0b1;}
-.blue{background:#7599ba;}
-.sky{background:#9dc8d6;}
-.purple{background:#8d7cae;}
-.lavender{background:#b7a2ca;}
-.brown{background:#79584a;}
-.mocha{background:#9a7561;}
-.gray{background:#96928e;}
-.black{background:#353434;}
-
-/* ================= COLOR INFO ================= */
-
 .color-preview{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:15px;
-    padding:12px;
-    margin-top:15px;
-}
-
-.color-ball{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-
-    box-shadow:
-        inset 5px 5px 10px rgba(255,255,255,.45),
-        inset -5px -5px 10px rgba(0,0,0,.15);
-}
-
-.color-preview b{
-    font-size:12px;
-}
-
-.color-preview span{
-    display:block;
-    color:#92796c;
-    font-size:9px;
-    margin-top:4px;
-}
-
-/* ================= PATTERN ================= */
-
-.pattern-title{
-    margin-top:20px;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.patterns{
-    display:flex;
-    gap:9px;
-    margin-top:10px;
-}
-
-.pattern{
-    flex:1;
-    border:1px solid #e3d5cb;
-    background:white;
-    border-radius:12px;
-    padding:10px;
-    text-align:center;
-    cursor:pointer;
-    font-size:10px;
-}
-
-.pattern.active{
-    background:#8b5b46;
-    color:white;
-}
-
-/* ================= COLOR MATCH ================= */
-
-.palette{
-    height:70px;
-    display:flex;
-    border-radius:15px;
-    overflow:hidden;
-    margin-top:15px;
-}
-
-.palette div{
-    flex:1;
-}
-
-.recommend{
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:16px;
-    padding:14px;
-    margin-top:15px;
-}
-
-.recommend h3{
-    font-size:13px;
-}
-
-.recommend p{
-    font-size:10px;
-    color:#8f786d;
-    line-height:1.7;
-    margin-top:6px;
-}
-
-/* ================= MAKER ================= */
-
-.maker-card{
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:18px;
-    padding:15px;
-    display:flex;
-    gap:12px;
-    margin-top:15px;
-}
-
-.avatar{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    background:#ddc0ae;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:27px;
-}
-
-.maker-card b{
-    font-size:14px;
-}Here is the visual code for the interface, including the recommended knitted products with distinct designs and accurate names to ensure the tags prevent confusion about the specific items.
-
-```html
-<!DOCTYPE html>
-<html lang="th">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>ARAYA SHOP | Handmade Knit</title>
-
-<style>
-*{
-    box-sizing:border-box;
-    margin:0;
-    padding:0;
-    font-family:Arial,"Noto Sans Thai",sans-serif;
-}
-
-body{
-    background:#e7dfd8;
-    color:#382d27;
-    min-height:100vh;
-    display:flex;
-    justify-content:center;
-}
-
-.app{
-    width:430px;
-    max-width:100%;
-    min-height:100vh;
-    background:#fffaf6;
-    position:relative;
-    overflow:hidden;
-}
-
-/* ================= HEADER ================= */
-
-.header{
-    height:70px;
-    padding:10px 15px;
-    background:#fffaf6;
-    border-bottom:1px solid #eaded5;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    position:sticky;
-    top:0;
-    z-index:50;
-}
-
-.logo{
-    display:flex;
-    align-items:center;
-    gap:9px;
-}
-
-.logo-icon{
-    width:42px;
-    height:42px;
-    border-radius:14px;
-    background:#8b5b46;
-    color:white;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:22px;
-}
-
-.logo-name{
-    font-size:18px;
-    font-weight:bold;
-}
-
-.logo-sub{
-    font-size:8px;
-    color:#a1877b;
-    margin-top:2px;
-}
-
-.header-buttons{
-    display:flex;
-    gap:7px;
-}
-
-.icon-btn{
-    width:38px;
-    height:38px;
-    border:1px solid #e5d8cf;
-    border-radius:12px;
-    background:white;
-    cursor:pointer;
-    font-size:17px;
-}
-
-/* ================= CONTENT ================= */
-
-.content{
-    height:calc(100vh - 70px);
-    overflow-y:auto;
-    padding-bottom:90px;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    margin:15px;
-    min-height:235px;
-    border-radius:24px;
-    overflow:hidden;
-    position:relative;
-
-    background:
-        linear-gradient(
-            90deg,
-            rgba(57,39,31,.88),
-            rgba(57,39,31,.25)
-        ),
-        url("https://i.etsystatic.com/44715247/r/il/d481c4/7706522484/il_fullxfull.7706522484_6ecy.jpg")
-        center/cover;
-
-    color:white;
-    padding:25px;
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-}
-
-.hero small{
-    font-size:10px;
-    letter-spacing:.5px;
-}
-
-.hero h1{
-    font-size:29px;
-    line-height:1.25;
-    margin:8px 0;
-}
-
-.hero p{
-    width:75%;
-    font-size:11px;
-    line-height:1.7;
-}
-
-.hero button{
-    width:175px;
-    margin-top:14px;
-    padding:11px;
-    border:0;
-    border-radius:12px;
-    background:white;
-    color:#754d3c;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-/* ================= QUICK ================= */
-
-.quick{
-    display:flex;
-    gap:10px;
-    overflow-x:auto;
-    padding:0 15px 18px;
-}
-
-.quick-card{
-    min-width:125px;
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:17px;
-    padding:13px 11px;
-    cursor:pointer;
-}
-
-.quick-card:hover{
-    transform:translateY(-2px);
-}
-
-.qicon{
-    font-size:24px;
-}
-
-.quick-card b{
-    display:block;
-    font-size:11px;
-    margin-top:6px;
-}
-
-.quick-card span{
-    display:block;
-    font-size:9px;
-    color:#998177;
-    margin-top:3px;
-}
-
-/* ================= TITLE ================= */
-
-.section-title{
-    padding:5px 16px 12px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-}
-
-.section-title h2{
-    font-size:18px;
-}
-
-.section-title button{
-    border:0;
-    background:none;
-    color:#8b5b46;
-    font-size:10px;
-    cursor:pointer;
-}
-
-/* ================= CATEGORY ================= */
-
-.categories{
-    display:flex;
-    gap:8px;
-    overflow-x:auto;
-    padding:0 16px 18px;
-}
-
-.category{
-    white-space:nowrap;
-    padding:8px 14px;
-    background:#f0e7e1;
-    border-radius:20px;
-    font-size:10px;
-    cursor:pointer;
-}
-
-.category.active{
-    background:#8b5b46;
-    color:white;
-}
-
-/* ================= PRODUCTS ================= */
-
-.products{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:12px;
-    padding:0 16px 20px;
-}
-
-.product{
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:18px;
-    overflow:hidden;
-    position:relative;
-}
-
-.product img{
-    width:100%;
-    height:170px;
-    display:block;
-    object-fit:cover;
-    background:#eee5df;
-}
-
-.favorite{
-    position:absolute;
-    right:8px;
-    top:8px;
-    width:32px;
-    height:32px;
-    border:0;
-    border-radius:50%;
-    background:white;
-    cursor:pointer;
-    font-size:18px;
-    z-index:2;
-}
-
-.product-info{
-    padding:10px;
-}
-
-.tag{
-    display:inline-block;
-    background:#f0dfd5;
-    color:#815744;
-    padding:4px 7px;
-    border-radius:7px;
-    font-size:8px;
-}
-
-.product-name{
-    font-weight:bold;
-    font-size:12px;
-    margin-top:7px;
-}
-
-.maker{
-    font-size:9px;
-    color:#9a8277;
-    margin-top:4px;
-}
-
-.price{
-    color:#8b5b46;
-    font-size:16px;
-    font-weight:bold;
-    margin-top:8px;
-}
-
-.product button.buy{
-    width:100%;
-    margin-top:8px;
-    padding:9px;
-    border:0;
-    background:#8b5b46;
-    color:white;
-    border-radius:9px;
-    cursor:pointer;
-    font-size:10px;
-}
-
-/* ================= EXPERIENCE ================= */
-
-.experience{
-    margin:0 16px 20px;
-    background:#f1e5dd;
-    padding:18px;
-    border-radius:20px;
-}
-
-.experience b{
-    font-size:14px;
-}
-
-.experience p{
-    font-size:10px;
-    color:#876f64;
-    line-height:1.7;
-    margin-top:7px;
-}
-
-.secondary{
-    width:100%;
-    border:1px solid #8b5b46;
-    background:white;
-    color:#8b5b46;
-    padding:12px;
-    border-radius:12px;
-    cursor:pointer;
-    font-weight:bold;
-    margin-top:10px;
-}
-
-/* ================= BOTTOM NAV ================= */
-
-.bottom-nav{
-    position:fixed;
-    bottom:0;
-    width:430px;
-    max-width:100%;
-    height:72px;
-    background:rgba(255,250,246,.98);
-    border-top:1px solid #eaded5;
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-    z-index:60;
-}
-
-.nav-item{
-    text-align:center;
-    color:#9b8175;
-    font-size:9px;
-    cursor:pointer;
-}
-
-.nav-icon{
-    font-size:21px;
-    margin-bottom:4px;
-}
-
-.nav-item.active{
-    color:#8b5b46;
-    font-weight:bold;
-}
-
-/* ================= MODAL ================= */
-
-.modal{
-    position:fixed;
-    inset:0;
-    background:rgba(40,28,22,.62);
-    display:none;
-    align-items:flex-end;
-    justify-content:center;
-    z-index:100;
-}
-
-.modal-box{
-    width:430px;
-    max-width:100%;
-    max-height:94vh;
-    overflow-y:auto;
-    background:#fffaf6;
-    border-radius:27px 27px 0 0;
-    padding:20px;
-    animation:slideUp .25s ease;
-}
-
-@keyframes slideUp{
-    from{
-        transform:translateY(100%);
-    }
-    to{
-        transform:translateY(0);
-    }
-}
-
-.back{
-    border:0;
-    background:#f0e7e1;
-    color:#694b3d;
-    padding:9px 14px;
-    border-radius:10px;
-    cursor:pointer;
-    font-size:11px;
-    margin-bottom:14px;
-}
-
-/* ================= DETAIL ================= */
-
-.detail-image{
-    width:100%;
-    height:290px;
-    object-fit:cover;
-    border-radius:18px;
-    background:#eee5df;
-}
-
-.detail-title{
-    font-size:22px;
-    font-weight:bold;
-    margin-top:12px;
-}
-
-.detail-maker{
-    font-size:10px;
-    color:#957c70;
-    margin-top:4px;
-}
-
-.detail-price{
-    font-size:22px;
-    color:#8b5b46;
-    font-weight:bold;
-    margin-top:7px;
-}
-
-.description{
-    font-size:11px;
-    line-height:1.7;
-    color:#786960;
-    margin-top:9px;
-}
-
-.primary{
-    width:100%;
-    border:0;
-    background:#8b5b46;
-    color:white;
-    padding:13px;
-    border-radius:12px;
-    cursor:pointer;
-    font-weight:bold;
-    margin-top:12px;
-}
-
-/* ================= CUSTOM COLOR LAB ================= */
-
-.custom-preview{
-    background:#f1e8e1;
-    border-radius:22px;
-    padding:20px;
-    margin-top:15px;
-    text-align:center;
-}
-
-/* กระเป๋าตัวอย่าง */
-
-.preview-bag{
-    width:195px;
-    height:155px;
-    margin:50px auto 15px;
-    background:#e5a48e;
-    border-radius:22px 22px 28px 28px;
-    position:relative;
-
-    box-shadow:
-        inset 0 0 0 7px rgba(255,255,255,.18),
-        0 12px 22px rgba(80,50,40,.18);
-
-    transition:.35s;
-}
-
-/* หูกระเป๋า */
-
-.preview-bag::before{
-    content:"";
-    position:absolute;
-
-    width:105px;
-    height:58px;
-
-    border:12px solid #e5a48e;
-    border-bottom:0;
-
-    border-radius:70px 70px 0 0;
-
-    left:33px;
-    top:-48px;
-
-    transition:.35s;
-}
-
-/* ลายถัก */
-
-.preview-bag::after{
-    content:"✿  ✿  ✿";
-    position:absolute;
-    left:15px;
-    right:15px;
-    top:55px;
-
-    font-size:29px;
-    color:#fff8ee;
-    letter-spacing:4px;
-}
-
-/* ================= YARN ================= */
-
-.yarn-title{
-    display:flex;
-    justify-content:space-between;
-    margin-top:20px;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.selected-name{
-    color:#8b5b46;
-}
-
-.yarn-grid{
-    display:grid;
-    grid-template-columns:repeat(6,1fr);
-    gap:12px;
-    margin-top:14px;
-}
-
-.yarn{
-    width:45px;
-    height:45px;
-    border-radius:50%;
-    position:relative;
-    cursor:pointer;
-
-    box-shadow:
-        inset 4px 4px 8px rgba(255,255,255,.45),
-        inset -5px -5px 8px rgba(0,0,0,.14),
-        0 2px 5px rgba(0,0,0,.15);
-
-    transition:.2s;
-}
-
-.yarn:hover{
-    transform:scale(1.1);
-}
-
-.yarn::before{
-    content:"";
-    position:absolute;
-    inset:8px;
-    border:2px solid rgba(255,255,255,.28);
-    border-radius:50%;
-}
-
-.yarn::after{
-    content:"";
-    position:absolute;
-    width:13px;
-    height:13px;
-    background:rgba(255,255,255,.22);
-    border-radius:50%;
-    left:16px;
-    top:16px;
-}
-
-.yarn.selected{
-    outline:3px solid #8b5b46;
-    outline-offset:3px;
-    transform:scale(1.08);
-}
-
-/* COLORS */
-
-.cream{background:#eee2cf;}
-.beige{background:#c8a889;}
-.peach{background:#e5a48e;}
-.pink{background:#e29aa7;}
-.red{background:#b9444e;}
-.orange{background:#e8903e;}
-.yellow{background:#e5c55e;}
-.sage{background:#9eaf82;}
-.green{background:#58785c;}
-.mint{background:#8fc0b1;}
-.blue{background:#7599ba;}
-.sky{background:#9dc8d6;}
-.purple{background:#8d7cae;}
-.lavender{background:#b7a2ca;}
-.brown{background:#79584a;}
-.mocha{background:#9a7561;}
-.gray{background:#96928e;}
-.black{background:#353434;}
-
-/* ================= COLOR INFO ================= */
-
-.color-preview{
-    display:flex;
-    align-items:center;
-    gap:12px;
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:15px;
-    padding:12px;
-    margin-top:15px;
-}
-
-.color-ball{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-
-    box-shadow:
-        inset 5px 5px 10px rgba(255,255,255,.45),
-        inset -5px -5px 10px rgba(0,0,0,.15);
-}
-
-.color-preview b{
-    font-size:12px;
-}
-
-.color-preview span{
-    display:block;
-    color:#92796c;
-    font-size:9px;
-    margin-top:4px;
-}
-
-/* ================= PATTERN ================= */
-
-.pattern-title{
-    margin-top:20px;
-    font-size:12px;
-    font-weight:bold;
-}
-
-.patterns{
-    display:flex;
-    gap:9px;
-    margin-top:10px;
-}
-
-.pattern{
-    flex:1;
-    border:1px solid #e3d5cb;
-    background:white;
-    border-radius:12px;
-    padding:10px;
-    text-align:center;
-    cursor:pointer;
-    font-size:10px;
-}
-
-.pattern.active{
-    background:#8b5b46;
-    color:white;
-}
-
-/* ================= COLOR MATCH ================= */
-
-.palette{
-    height:70px;
-    display:flex;
-    border-radius:15px;
-    overflow:hidden;
-    margin-top:15px;
-}
-
-.palette div{
-    flex:1;
-}
-
-.recommend{
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:16px;
-    padding:14px;
-    margin-top:15px;
-}
-
-.recommend h3{
-    font-size:13px;
-}
-
-.recommend p{
-    font-size:10px;
-    color:#8f786d;
-    line-height:1.7;
-    margin-top:6px;
-}
-
-/* ================= MAKER ================= */
-
-.maker-card{
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:18px;
-    padding:15px;
-    display:flex;
-    gap:12px;
-    margin-top:15px;
-}
-
-.avatar{
-    width:55px;
-    height:55px;
-    border-radius:50%;
-    background:#ddc0ae;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    font-size:27px;
-}
-
-.maker-card b{
-    font-size:14px;
-}
-
-.maker-card p{
-    font-size:10px;
-    color:#91796e;
-    margin-top:5px;
-}
-
-/* ================= TIMELINE ================= */
-
-.timeline{
-    margin-top:18px;
-}
-
-.timeline-item{
-    display:flex;
-    gap:12px;
-    margin-bottom:18px;
-}
-
-.timeline-icon{
-    width:36px;
-    height:36px;
-    background:#eadbd1;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-shrink:0;
-}
-
-.timeline-text b{
-    font-size:12px;
-}
-
-.timeline-text p{
-    font-size:10px;
-    color:#8e786d;
-    margin-top:4px;
-}
-
-/* ================= STATUS ================= */
-
-.status{
-    background:white;
-    border:1px solid #eaded5;
-    border-radius:18px;
-    padding:15px;
-    margin-top:15px;
-}
-
-.status-top{
-    display:flex;
-    justify-content:space-between;
-    font-size:11px;
-}
-
-.progress{
-    height:8px;
-    background:#eaded5;
-    border-radius:10px;
-    margin-top:13px;
-    overflow:hidden;
-}
-
-.progress div{
-    width:72%;
-    height:100%;
-    background:#8b5b46;
-}
-
-/* ================= CART ================= */
-
+    position:absolute;inset:0;z-index:3;
+    pointer-events:none;opacity:.30;
+    mix-blend-mode:multiply;
+    transition:background .3s ease
+}
+.color-title{margin-top:18px;font-size:12px;font-weight:bold}
+.selected-color{
+    display:flex;align-items:center;gap:10px;
+    padding:10px;margin-top:10px;
+    background:white;border:1px solid #eaded7;
+    border-radius:14px
+}
+.selected-circle{
+    width:44px;height:44px;border-radius:50%;
+    box-shadow:inset 3px 3px 6px rgba(255,255,255,.5),
+               inset -3px -3px 6px rgba(0,0,0,.18)
+}
+.selected-name{font-size:11px;font-weight:bold}
+.selected-hex{font-size:8px;color:#927d72;margin-top:3px}
+.color-grid{
+    display:grid;grid-template-columns:repeat(7,1fr);
+    gap:11px;margin-top:15px
+}
+.color-option{
+    height:32px;border-radius:50%;border:0;
+    box-shadow:inset 3px 3px 6px rgba(255,255,255,.5),
+               inset -3px -3px 6px rgba(0,0,0,.2)
+}
+.color-option.selected{
+    outline:3px solid #8b5c48;outline-offset:2px
+}
+
+/* DETAIL */
+.detail-photo{
+    height:330px;width:100%;background:#f3eee9;
+    border-radius:20px;overflow:hidden;
+    display:flex;align-items:center;justify-content:center
+}
+.detail-photo img{width:100%;height:100%;object-fit:contain}
+.detail-name{font-size:21px;margin:15px 0 4px}
+.detail-price{color:#8b5c48;font-size:23px;font-weight:bold}
+.detail-description{color:#8e796e;font-size:10px;line-height:1.9}
+.detail-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:8px;margin:15px 0
+}
+.detail-box{
+    background:#f3e8e1;border-radius:11px;
+    padding:11px;font-size:9px
+}
+.size-table{
+    width:100%;border-collapse:collapse;
+    background:white;margin-top:15px;font-size:9px
+}
+.size-table th,.size-table td{
+    border:1px solid #e1d4cc;padding:10px;text-align:center
+}
+.size-table th{background:#8b5c48;color:white}
+
+/* CART */
 .cart-item{
-    display:flex;
-    gap:10px;
-    padding:12px 0;
-    border-bottom:1px solid #eaded5;
+    display:flex;gap:10px;padding:10px;margin-bottom:10px;
+    background:white;border:1px solid #eaded7;border-radius:15px
+}
+.cart-photo{
+    width:80px;height:80px;flex-shrink:0;
+    border-radius:12px;overflow:hidden;background:#f2ede8
+}
+.cart-photo img{width:100%;height:100%;object-fit:contain}
+.cart-info{flex:1}
+.cart-name{font-size:11px;font-weight:bold}
+.cart-color{color:#8b5c48;font-size:8px;margin-top:5px}
+.cart-price{color:#8b5c48;font-size:12px;font-weight:bold;margin-top:7px}
+.quantity{display:flex;align-items:center;gap:7px;margin-top:7px}
+.quantity button{
+    width:24px;height:24px;border:1px solid #dfd2ca;
+    border-radius:7px;background:white
+}
+.delete-btn{margin-left:auto;background:#f2dfda!important}
+.summary{
+    background:#f2e7df;padding:15px;
+    border-radius:16px;margin-top:15px
+}
+.summary-row{
+    display:flex;justify-content:space-between;
+    font-size:10px;margin-bottom:8px
+}
+.total{
+    display:flex;justify-content:space-between;
+    border-top:1px solid #d7c8be;padding-top:12px;
+    color:#8b5c48;font-size:17px;font-weight:bold
 }
 
-.cart-item img{
-    width:75px;
-    height:75px;
-    object-fit:cover;
-    border-radius:12px;
-    background:#eee5df;
+/* ACCOUNT */
+.account-cover{
+    height:120px;border-radius:22px;
+    background:linear-gradient(135deg,#765341,#c7a18d);
+    position:relative;overflow:hidden
 }
-
-.cart-info{
-    flex:1;
+.account-cover:after{
+    content:"🧶";position:absolute;right:10px;bottom:-25px;
+    font-size:120px;opacity:.14
 }
-
-.cart-info b{
-    font-size:12px;
+.account-profile{
+    background:white;border-radius:20px;
+    margin-top:-40px;position:relative;z-index:3;
+    padding:18px;box-shadow:0 5px 20px rgba(50,30,20,.08)
 }
-
-.cart-info p{
-    color:#91796e;
-    font-size:9px;
-    margin-top:4px;
+.shop-avatar{
+    width:72px;height:72px;background:#8b5c48;color:white;
+    border-radius:22px;display:flex;justify-content:center;
+    align-items:center;font-weight:bold;font-size:22px;
+    border:5px solid white;margin-top:-48px
 }
-
-.cart-price{
-    color:#8b5b46;
-    font-weight:bold;
-    margin-top:6px;
+.account-name{font-size:20px;font-weight:bold;margin-top:10px}
+.account-handle{font-size:9px;color:#9b8479;margin-top:4px}
+.shop-status{
+    display:inline-flex;align-items:center;gap:5px;
+    background:#e7f1e4;color:#5c8055;border-radius:20px;
+    padding:6px 10px;font-size:8px;margin-top:10px
 }
-
-/* ================= INPUT ================= */
-
-.input{
-    width:100%;
-    padding:12px;
-    border:1px solid #ddd0c7;
-    border-radius:10px;
-    margin-top:10px;
-    background:white;
-    outline:none;
+.account-stats{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:8px;margin-top:15px
 }
-
-textarea.input{
-    resize:none;
+.stat{
+    background:#f5ede8;border-radius:13px;
+    padding:12px 5px;text-align:center
 }
+.stat-number{font-size:16px;font-weight:bold;color:#8b5c48}
+.stat-label{font-size:8px;color:#927d72;margin-top:4px}
+.account-menu{margin-top:15px}
+.account-menu-item{
+    width:100%;border:1px solid #eaded7;background:white;
+    padding:14px;border-radius:14px;margin-bottom:8px;
+    display:flex;align-items:center;gap:12px;text-align:left
+}
+.menu-icon{
+    width:38px;height:38px;border-radius:11px;
+    background:#f2e6df;display:flex;
+    justify-content:center;align-items:center;font-size:18px
+}
+.menu-text{flex:1}
+.menu-title{font-size:11px;font-weight:bold}
+.menu-sub{font-size:8px;color:#978278;margin-top:3px}
+.menu-arrow{color:#a28d82}
 
-/* ================= TOAST ================= */
+/* FORMS */
+.form-card{
+    background:white;border:1px solid #eaded7;
+    border-radius:17px;padding:15px;margin-top:12px
+}
+.form-group{margin-bottom:13px}
+.form-group label{
+    display:block;font-size:9px;font-weight:bold;margin-bottom:6px
+}
+.form-input,.form-textarea{
+    width:100%;border:1px solid #ddcec6;
+    border-radius:10px;padding:10px;
+    outline:none;font-size:10px;background:#fffdfa
+}
+.form-input:focus,.form-textarea:focus{
+    border-color:#8b5c48
+}
+.form-textarea{min-height:85px;resize:vertical}
+.switch-row{
+    display:flex;align-items:center;
+    justify-content:space-between;
+    padding:11px 0
+}
+.switch{
+    position:relative;width:45px;height:24px
+}
+.switch input{display:none}
+.slider{
+    position:absolute;inset:0;background:#ccc;
+    border-radius:20px;transition:.2s
+}
+.slider:before{
+    content:"";position:absolute;
+    width:18px;height:18px;left:3px;top:3px;
+    background:white;border-radius:50%;transition:.2s
+}
+.switch input:checked + .slider{background:#8b5c48}
+.switch input:checked + .slider:before{transform:translateX(21px)}
+.info-box{
+    background:#f5ebe5;border-radius:13px;
+    padding:13px;margin-top:10px
+}
+.info-row{
+    display:flex;justify-content:space-between;
+    gap:10px;padding:7px 0;
+    border-bottom:1px solid #e4d7cf;font-size:9px
+}
+.info-row:last-child{border-bottom:0}
+.info-label{color:#927d72}
+.info-value{text-align:right;font-weight:bold}
 
+/* INCOME */
+.income-main{
+    background:linear-gradient(135deg,#765341,#b78c75);
+    color:white;border-radius:20px;padding:20px;
+    margin-top:12px
+}
+.income-label{font-size:9px;opacity:.8}
+.income-value{font-size:30px;font-weight:bold;margin:8px 0}
+.income-small{font-size:8px}
+.income-grid{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:10px;margin-top:12px
+}
+.income-box{
+    background:white;border:1px solid #eaded7;
+    border-radius:15px;padding:15px
+}
+.income-box-title{font-size:8px;color:#927d72}
+.income-box-value{
+    font-size:19px;font-weight:bold;
+    color:#8b5c48;margin-top:7px
+}
+.sales-list{margin-top:15px}
+.sales-item{
+    display:flex;justify-content:space-between;
+    align-items:center;background:white;
+    border:1px solid #eaded7;border-radius:13px;
+    padding:12px;margin-bottom:8px
+}
+.sales-name{font-size:9px;font-weight:bold}
+.sales-date{font-size:7px;color:#9b8479;margin-top:3px}
+.sales-amount{font-size:11px;color:#8b5c48;font-weight:bold}
+
+/* ORDER */
+.order-card{
+    background:white;border:1px solid #eaded7;
+    border-radius:17px;padding:17px;margin-top:15px
+}
+.order-status{
+    color:#65885d;font-size:12px;font-weight:bold;margin-top:10px
+}
+.empty{
+    grid-column:1/-1;text-align:center;
+    padding:50px 10px;color:#9a8378;font-size:11px
+}
+.bottom-nav{
+    position:fixed;bottom:0;width:430px;max-width:100%;
+    height:70px;background:#fffaf7;
+    border-top:1px solid #eaded7;
+    display:flex;align-items:center;
+    justify-content:space-around;z-index:100
+}
+.nav-item{color:#9b8479;text-align:center;font-size:7px}
+.nav-item.active{color:#8b5c48}
+.nav-icon{font-size:19px;margin-bottom:3px}
 .toast{
-    position:fixed;
-    bottom:88px;
-    left:50%;
+    position:fixed;left:50%;bottom:85px;
     transform:translateX(-50%);
-    background:#30251f;
-    color:white;
-    padding:11px 18px;
-    border-radius:30px;
-    font-size:11px;
-    display:none;
-    z-index:200;
-    white-space:nowrap;
+    background:#3d2c25;color:white;
+    padding:11px 18px;border-radius:30px;
+    font-size:10px;display:none;z-index:200
 }
-
-/* ================= RESPONSIVE ================= */
-
-@media(max-width:380px){
-
-    .yarn-grid{
-        grid-template-columns:repeat(5,1fr);
-    }
-
-    .yarn{
-        width:42px;
-        height:42px;
-    }
-
-    .products{
-        gap:8px;
-    }
-
+.credit{
+    padding:20px 15px;color:#a28c82;
+    font-size:7px;line-height:1.6;text-align:center
 }
 </style>
 </head>
@@ -2495,503 +452,1289 @@ textarea.input{
 
 <div class="app">
 
-<!-- ======================================================
-HEADER
-====================================================== -->
-
+<!-- HEADER -->
 <header class="header">
-
     <div class="logo">
-
-        <div class="logo-icon">
-            🧶
-        </div>
-
+        <div class="logo-icon">AS</div>
         <div>
-            <div class="logo-name">
-                ARAYA SHOP
-            </div>
-
-            <div class="logo-sub">
-                HANDMADE KNIT STUDIO
-            </div>
+            <div class="logo-name" id="headerShopName">ARAYA SHOP</div>
+            <div class="logo-sub">HANDMADE CROCHET</div>
         </div>
-
     </div>
 
     <div class="header-buttons">
-
-        <button
-            class="icon-btn"
-            onclick="openCart()">
+        <button class="icon-btn" onclick="showPage('favoritePage')">❤️</button>
+        <button class="icon-btn" onclick="showPage('cartPage')">
             🛒
+            <span id="cartBadge" class="badge">0</span>
         </button>
-
-        <button
-            class="icon-btn"
-            onclick="openAccount()">
-            👤
-        </button>
-
     </div>
-
 </header>
 
 
-<!-- ======================================================
-CONTENT
-====================================================== -->
+<!-- HOME -->
+<section id="homePage" class="page active">
 
-<main class="content">
+    <div class="hero">
+        <div class="hero-small">ARAYA SHOP • HANDMADE</div>
+        <h1>งานถักไหมพรม<br>ทำมือทุกชิ้น</h1>
+        <p>
+            สินค้าถักแฮนด์เมด
+            พร้อมฟังก์ชันเลือกสี
+            ให้คุณออกแบบสินค้าในสไตล์ของตัวเอง
+        </p>
 
-<!-- HERO -->
+        <div class="hero-buttons">
+            <button class="primary" onclick="openDesigner()">🎨 ออกแบบสี</button>
+            <button class="secondary" onclick="showPage('productsPage')">ดูสินค้า</button>
+        </div>
+    </div>
 
-<section class="hero">
+    <div class="search">
+        🔍
+        <input id="searchInput" type="text"
+               placeholder="ค้นหาสินค้า..."
+               oninput="searchProducts()">
+    </div>
 
-    <small>
-        HANDMADE • CROCHET • MADE WITH LOVE
-    </small>
+    <div class="section">
+        <div class="section-head">
+            <h2>ประเภทสินค้า</h2>
+        </div>
 
-    <h1>
-        งานถักที่<br>
-        เป็นตัวคุณ
-    </h1>
+        <div class="categories">
+            <button class="category active"
+                    onclick="homeFilter('ทั้งหมด',this)">ทั้งหมด</button>
+            <button class="category"
+                    onclick="homeFilter('กระเป๋าถัก',this)">👜 กระเป๋า</button>
+            <button class="category"
+                    onclick="homeFilter('หมวกถัก',this)">🧢 หมวก</button>
+            <button class="category"
+                    onclick="homeFilter('ตุ๊กตาถัก',this)">🧸 ตุ๊กตา</button>
+            <button class="category"
+                    onclick="homeFilter('พวงกุญแจถัก',this)">🔑 พวงกุญแจ</button>
+        </div>
+    </div>
 
-    <p>
-        เลือกสินค้าถักแฮนด์เมด
-        ออกแบบสีไหมพรม
-        และสร้างสินค้าในแบบของคุณเอง
-    </p>
+    <div class="promo">
+        <div>
+            <strong>✨ Handmade ราคาพิเศษ</strong>
+            <span>สินค้าถักเริ่มต้นเพียง ฿49</span>
+        </div>
+        <div class="promo-icon">🧶</div>
+    </div>
 
-    <button onclick="openCustomLab()">
-        ✨ เริ่มออกแบบสินค้า
-    </button>
+    <div class="section">
+        <div class="section-head">
+            <h2>สินค้าแนะนำ</h2>
+            <button onclick="showPage('productsPage')">ดูทั้งหมด →</button>
+        </div>
+        <div id="homeProducts" class="products"></div>
+    </div>
 
 </section>
 
 
-<!-- QUICK MENU -->
-
-<div class="quick">
-
-    <div
-        class="quick-card"
-        onclick="openCustomLab()">
-
-        <div class="qicon">
-            🎨
-        </div>
-
-        <b>
-            Color Design
-        </b>
-
-        <span>
-            ดูสีจริงก่อนสั่ง
-        </span>
-
-    </div>
-
-
-    <div
-        class="quick-card"
-        onclick="openColorAI()">
-
-        <div class="qicon">
-            🌈
-        </div>
-
-        <b>
-            Color Match
-        </b>
-
-        <span>
-            ช่วยจับคู่สี
-        </span>
-
-    </div>
-
-
-    <div
-        class="quick-card"
-        onclick="openMaker()">
-
-        <div class="qicon">
-            🧑‍🎨
-        </div>
-
-        <b>
-            Maker Story
-        </b>
-
-        <span>
-            รู้จักช่างถัก
-        </span>
-
-    </div>
-
-
-    <div
-        class="quick-card"
-        onclick="openStatus()">
-
-        <div class="qicon">
-            🧵
-        </div>
-
-        <b>
-            Knit Journey
-        </b>
-
-        <span>
-            ติดตามงาน
-        </span>
-
-    </div>
-
-</div>
-
-
 <!-- PRODUCTS -->
+<section id="productsPage" class="page">
+    <div class="inner">
+        <button class="back-btn" onclick="showPage('homePage')">
+            ← กลับหน้าหลัก
+        </button>
 
-<div class="section-title">
+        <h2>🧶 สินค้าทั้งหมด</h2>
 
-    <h2>
-        🧶 สินค้าถักแนะนำ
-    </h2>
+        <div class="categories">
+            <button class="category active"
+                    onclick="productFilter('ทั้งหมด',this)">ทั้งหมด</button>
+            <button class="category"
+                    onclick="productFilter('กระเป๋าถัก',this)">กระเป๋า</button>
+            <button class="category"
+                    onclick="productFilter('หมวกถัก',this)">หมวก</button>
+            <button class="category"
+                    onclick="productFilter('ตุ๊กตาถัก',this)">ตุ๊กตา</button>
+            <button class="category"
+                    onclick="productFilter('พวงกุญแจถัก',this)">พวงกุญแจ</button>
+        </div>
 
-    <button onclick="showAll()">
-        ดูทั้งหมด →
-    </button>
-
-</div>
-
-
-<div class="categories">
-
-    <div
-        class="category active"
-        onclick="filterProduct('ทั้งหมด',this)">
-        ทั้งหมด
+        <div id="allProducts" class="products"></div>
     </div>
+</section>
 
-    <div
-        class="category"
-        onclick="filterProduct('กระเป๋า',this)">
-        กระเป๋าถัก
+
+<!-- DETAIL -->
+<section id="detailPage" class="page">
+    <div class="inner">
+
+        <button class="back-btn" onclick="goBack()">← ย้อนกลับ</button>
+
+        <div class="detail-photo">
+            <img id="detailImage" src="" alt="">
+        </div>
+
+        <span id="detailTag" class="tag"></span>
+
+        <h1 id="detailName" class="detail-name"></h1>
+        <div id="detailPrice" class="detail-price"></div>
+        <p id="detailDescription" class="detail-description"></p>
+
+        <div class="detail-grid">
+            <div class="detail-box">🧶 ถักมือ</div>
+            <div class="detail-box">❤️ Handmade</div>
+            <div class="detail-box">🎨 เลือกสี</div>
+            <div class="detail-box">📦 แพ็กอย่างดี</div>
+        </div>
+
+        <button class="secondary"
+                style="width:100%;margin-bottom:10px"
+                onclick="openSize()">
+            📏 ดูตารางไซซ์
+        </button>
+
+        <div style="display:flex;gap:8px">
+            <button class="primary"
+                    style="flex:1"
+                    onclick="openDesignerFromDetail()">
+                🎨 ออกแบบสี
+            </button>
+
+            <button class="primary"
+                    style="flex:1"
+                    onclick="addCurrentProduct()">
+                🛒 เพิ่มตะกร้า
+            </button>
+        </div>
     </div>
+</section>
 
-    <div
-        class="category"
-        onclick="filterProduct('ตุ๊กตา',this)">
-        ตุ๊กตาถัก
+
+<!-- DESIGNER -->
+<section id="designerPage" class="page">
+    <div class="inner">
+
+        <button class="back-btn" onclick="goBack()">← ย้อนกลับ</button>
+
+        <h1 class="designer-title">🎨 ออกแบบสีสินค้า</h1>
+
+        <p class="designer-sub">
+            เลือกสินค้าและสีไหมพรม
+            ระบบจะแสดงตัวอย่างสีบนรูปสินค้าเดิม
+        </p>
+
+        <div class="categories">
+            <button class="category active"
+                    onclick="chooseDesigner(1,this)">👜 กระเป๋า</button>
+            <button class="category"
+                    onclick="chooseDesigner(2,this)">🧢 หมวก</button>
+            <button class="category"
+                    onclick="chooseDesigner(3,this)">🧸 ตุ๊กตา</button>
+            <button class="category"
+                    onclick="chooseDesigner(4,this)">🔑 พวงกุญแจ</button>
+        </div>
+
+        <div class="design-photo">
+            <img id="designerImage" src="" alt="">
+            <div id="colorPreview" class="color-preview"></div>
+        </div>
+
+        <h3 id="designerName" style="font-size:14px"></h3>
+
+        <div class="color-title">🎨 เลือกสีไหมพรม</div>
+
+        <div class="selected-color">
+            <div id="selectedCircle" class="selected-circle"></div>
+            <div>
+                <div id="selectedName" class="selected-name"></div>
+                <div id="selectedHex" class="selected-hex"></div>
+            </div>
+        </div>
+
+        <div id="colorGrid" class="color-grid"></div>
+
+        <button class="primary"
+                style="width:100%;margin-top:16px"
+                onclick="addDesignedProduct()">
+            🛒 เพิ่มสินค้าที่ออกแบบลงตะกร้า
+        </button>
     </div>
+</section>
 
-    <div
-        class="category"
-        onclick="filterProduct('ดอกไม้',this)">
-        ดอกไม้ถัก
+
+<!-- SIZE -->
+<section id="sizePage" class="page">
+    <div class="inner">
+        <button class="back-btn" onclick="goBack()">← ย้อนกลับ</button>
+
+        <h2>📏 ตารางไซซ์</h2>
+
+        <table class="size-table">
+            <tr>
+                <th>สินค้า</th>
+                <th>ขนาด</th>
+                <th>รายละเอียด</th>
+            </tr>
+            <tr>
+                <td>กระเป๋า</td>
+                <td>25×30 cm</td>
+                <td>สะพายทั่วไป</td>
+            </tr>
+            <tr>
+                <td>หมวก</td>
+                <td>54–58 cm</td>
+                <td>ผู้ใหญ่</td>
+            </tr>
+            <tr>
+                <td>ตุ๊กตา</td>
+                <td>15–20 cm</td>
+                <td>ของขวัญ</td>
+            </tr>
+            <tr>
+                <td>พวงกุญแจ</td>
+                <td>7–10 cm</td>
+                <td>ห้อยกระเป๋า</td>
+            </tr>
+        </table>
     </div>
+</section>
 
+
+<!-- FAVORITE -->
+<section id="favoritePage" class="page">
+    <div class="inner">
+        <button class="back-btn" onclick="showPage('homePage')">
+            ← กลับหน้าหลัก
+        </button>
+        <h2>❤️ รายการโปรด</h2>
+        <div id="favoriteProducts" class="products"></div>
+    </div>
+</section>
+
+
+<!-- CART -->
+<section id="cartPage" class="page">
+    <div class="inner">
+        <button class="back-btn" onclick="goBack()">← ย้อนกลับ</button>
+        <h2>🛒 ตะกร้าของฉัน</h2>
+        <div id="cartItems"></div>
+        <div id="cartSummary"></div>
+    </div>
+</section>
+
+
+<!-- ORDER -->
+<section id="orderPage" class="page">
+    <div class="inner">
+        <button class="back-btn" onclick="showPage('homePage')">
+            ← กลับหน้าหลัก
+        </button>
+
+        <h2>📦 คำสั่งซื้อของฉัน</h2>
+
+        <div id="ordersList"></div>
+    </div>
+</section>
+
+
+<!-- ACCOUNT -->
+<section id="accountPage" class="page">
+    <div class="inner">
+
+        <button class="back-btn" onclick="showPage('homePage')">
+            ← กลับหน้าหลัก
+        </button>
+
+        <div class="account-cover"></div>
+
+        <div class="account-profile">
+
+            <div class="shop-avatar">AS</div>
+
+            <div id="accountShopName" class="account-name">
+                ARAYA SHOP
+            </div>
+
+            <div id="accountHandle" class="account-handle">
+                @araya_handmade
+            </div>
+
+            <div id="shopStatus" class="shop-status">
+                ● ร้านค้าเปิดอยู่
+            </div>
+
+            <div class="account-stats">
+
+                <div class="stat">
+                    <div id="statProducts" class="stat-number">4</div>
+                    <div class="stat-label">สินค้า</div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-number">4.9</div>
+                    <div class="stat-label">คะแนนร้าน</div>
+                </div>
+
+                <div class="stat">
+                    <div id="statCustomers" class="stat-number">0</div>
+                    <div class="stat-label">ออเดอร์</div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <div class="account-menu">
+
+            <button class="account-menu-item"
+                    onclick="openIncome()">
+                <div class="menu-icon">💰</div>
+                <div class="menu-text">
+                    <div class="menu-title">รายได้ของร้าน</div>
+                    <div class="menu-sub">ดูยอดขายและรายได้จริงจากออเดอร์</div>
+                </div>
+                <div class="menu-arrow">→</div>
+            </button>
+
+
+            <button class="account-menu-item"
+                    onclick="openShopInfo()">
+                <div class="menu-icon">🏪</div>
+                <div class="menu-text">
+                    <div class="menu-title">ข้อมูลร้านค้า</div>
+                    <div class="menu-sub">แก้ไขรายละเอียดและช่องทางติดต่อร้าน</div>
+                </div>
+                <div class="menu-arrow">→</div>
+            </button>
+
+
+            <button class="account-menu-item"
+                    onclick="openSettings()">
+                <div class="menu-icon">⚙️</div>
+                <div class="menu-text">
+                    <div class="menu-title">ตั้งค่าร้านค้า</div>
+                    <div class="menu-sub">จัดการชื่อร้านและสถานะการเปิดร้าน</div>
+                </div>
+                <div class="menu-arrow">→</div>
+            </button>
+
+
+            <button class="account-menu-item"
+                    onclick="showPage('productsPage')">
+                <div class="menu-icon">🧶</div>
+                <div class="menu-text">
+                    <div class="menu-title">จัดการสินค้า</div>
+                    <div class="menu-sub">ดูสินค้าถักทั้งหมด</div>
+                </div>
+                <div class="menu-arrow">→</div>
+            </button>
+
+
+            <button class="account-menu-item"
+                    onclick="showPage('orderPage')">
+                <div class="menu-icon">📦</div>
+                <div class="menu-text">
+                    <div class="menu-title">คำสั่งซื้อ</div>
+                    <div class="menu-sub">ตรวจสอบรายการสั่งซื้อ</div>
+                </div>
+                <div class="menu-arrow">→</div>
+            </button>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- INCOME -->
+<section id="incomePage" class="page">
+    <div class="inner">
+
+        <button class="back-btn" onclick="showPage('accountPage')">
+            ← กลับบัญชีร้านค้า
+        </button>
+
+        <h2>💰 รายได้ของร้าน</h2>
+
+        <div class="income-main">
+            <div class="income-label">รายได้สะสม</div>
+            <div id="incomeTotal" class="income-value">฿0</div>
+            <div class="income-small">
+                คำนวณจากคำสั่งซื้อที่ชำระแล้ว
+            </div>
+        </div>
+
+        <div class="income-grid">
+
+            <div class="income-box">
+                <div class="income-box-title">จำนวนออเดอร์</div>
+                <div id="incomeOrders" class="income-box-value">0</div>
+            </div>
+
+            <div class="income-box">
+                <div class="income-box-title">สินค้าที่ขาย</div>
+                <div id="incomeItems" class="income-box-value">0</div>
+            </div>
+
+        </div>
+
+        <h3 style="font-size:13px;margin-top:20px">
+            รายการขายล่าสุด
+        </h3>
+
+        <div id="salesList" class="sales-list"></div>
+
+        <button class="secondary"
+                style="width:100%;margin-top:10px"
+                onclick="resetSales()">
+            🗑️ ล้างข้อมูลยอดขาย
+        </button>
+
+    </div>
+</section>
+
+
+<!-- SHOP INFO -->
+<section id="shopInfoPage" class="page">
+    <div class="inner">
+
+        <button class="back-btn" onclick="showPage('accountPage')">
+            ← กลับบัญชีร้านค้า
+        </button>
+
+        <h2>🏪 ข้อมูลร้านค้า</h2>
+
+        <div class="form-card">
+
+            <div class="form-group">
+                <label>ชื่อร้าน</label>
+                <input id="infoShopName"
+                       class="form-input"
+                       type="text">
+            </div>
+
+            <div class="form-group">
+                <label>ชื่อผู้ดูแลร้าน</label>
+                <input id="infoOwner"
+                       class="form-input"
+                       type="text">
+            </div>
+
+            <div class="form-group">
+                <label>เบอร์โทรศัพท์</label>
+                <input id="infoPhone"
+                       class="form-input"
+                       type="tel">
+            </div>
+
+            <div class="form-group">
+                <label>อีเมล</label>
+                <input id="infoEmail"
+                       class="form-input"
+                       type="email">
+            </div>
+
+            <div class="form-group">
+                <label>ที่อยู่ร้าน</label>
+                <textarea id="infoAddress"
+                          class="form-textarea"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label>รายละเอียดร้าน</label>
+                <textarea id="infoDescription"
+                          class="form-textarea"></textarea>
+            </div>
+
+            <button class="primary"
+                    style="width:100%"
+                    onclick="saveShopInfo()">
+                💾 บันทึกข้อมูลร้านค้า
+            </button>
+
+        </div>
+
+        <div class="info-box">
+            <div class="info-row">
+                <span class="info-label">ชื่อร้าน</span>
+                <span id="displayShopName" class="info-value"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">โทร</span>
+                <span id="displayPhone" class="info-value"></span>
+            </div>
+            <div class="info-row">
+                <span class="info-label">อีเมล</span>
+                <span id="displayEmail" class="info-value"></span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- SETTINGS -->
+<section id="settingsPage" class="page">
+    <div class="inner">
+
+        <button class="back-btn" onclick="showPage('accountPage')">
+            ← กลับบัญชีร้านค้า
+        </button>
+
+        <h2>⚙️ ตั้งค่าร้านค้า</h2>
+
+        <div class="form-card">
+
+            <div class="form-group">
+                <label>ชื่อร้านที่แสดงในแอป</label>
+                <input id="settingShopName"
+                       class="form-input"
+                       type="text">
+            </div>
+
+            <div class="form-group">
+                <label>ชื่อผู้ใช้ร้าน</label>
+                <input id="settingUsername"
+                       class="form-input"
+                       type="text">
+            </div>
+
+            <div class="switch-row">
+                <div>
+                    <strong style="font-size:10px">
+                        เปิดร้าน
+                    </strong>
+                    <div style="font-size:8px;color:#927d72;margin-top:3px">
+                        ลูกค้าสามารถดูและสั่งซื้อสินค้าได้
+                    </div>
+                </div>
+
+                <label class="switch">
+                    <input id="shopOpen"
+                           type="checkbox">
+                    <span class="slider"></span>
+                </label>
+            </div>
+
+            <button class="primary"
+                    style="width:100%;margin-top:12px"
+                    onclick="saveSettings()">
+                💾 บันทึกการตั้งค่า
+            </button>
+
+        </div>
+
+        <div class="form-card">
+
+            <h3 style="font-size:12px;margin-top:0">
+                💡 การจัดเก็บข้อมูล
+            </h3>
+
+            <p style="font-size:9px;color:#927d72;line-height:1.8">
+                ข้อมูลร้านค้าและการตั้งค่าจะถูกบันทึกไว้ใน
+                Local Storage ของเบราว์เซอร์เครื่องนี้
+                เมื่อเปิดหน้าเว็บใหม่ ข้อมูลที่บันทึกไว้จะยังคงอยู่
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<div class="credit">
+    ARAYA SHOP • Handmade Crochet
 </div>
 
 
-<div
-    class="products"
-    id="products">
-</div>
-
-
-<!-- EXPERIENCE -->
-
-<div class="section-title">
-
-    <h2>
-        ✨ ARAYA EXPERIENCE
-    </h2>
-
-</div>
-
-
-<div class="experience">
-
-    <b>
-        เลือกสีจริง → ดูตัวอย่าง → สั่งทำ
-    </b>
-
-    <p>
-        จุดเด่นของ ARAYA SHOP คือให้ลูกค้า
-        ทดลองเลือกสีไหมพรมและดูตัวอย่างสินค้า
-        ก่อนตัดสินใจสั่งทำ
-    </p>
-
-    <button
-        class="secondary"
-        onclick="openCustomLab()">
-
-        🎨 ทดลองเลือกสีไหมพรม
-
-    </button>
-
-</div>
-
-</main>
-
-
-<!-- ======================================================
-BOTTOM NAV
-====================================================== -->
-
+<!-- BOTTOM NAV -->
 <nav class="bottom-nav">
 
-    <div
-        class="nav-item active"
-        onclick="home()">
-
-        <div class="nav-icon">
-            🏠
-        </div>
-
+    <div id="navHome"
+         class="nav-item active"
+         onclick="showPage('homePage')">
+        <div class="nav-icon">🏠</div>
         หน้าแรก
-
     </div>
 
+    <div id="navProducts"
+         class="nav-item"
+         onclick="showPage('productsPage')">
+        <div class="nav-icon">🧶</div>
+        สินค้า
+    </div>
 
-    <div
-        class="nav-item"
-        onclick="openCustomLab()">
-
-        <div class="nav-icon">
-            🎨
-        </div>
-
+    <div id="navDesigner"
+         class="nav-item"
+         onclick="openDesigner()">
+        <div class="nav-icon">🎨</div>
         ออกแบบ
-
     </div>
 
-
-    <div
-        class="nav-item"
-        onclick="openStatus()">
-
-        <div class="nav-icon">
-            🧵
-        </div>
-
-        งานของฉัน
-
+    <div id="navOrder"
+         class="nav-item"
+         onclick="showPage('orderPage')">
+        <div class="nav-icon">📦</div>
+        คำสั่งซื้อ
     </div>
 
-
-    <div
-        class="nav-item"
-        onclick="openAccount()">
-
-        <div class="nav-icon">
-            👤
-        </div>
-
+    <div id="navAccount"
+         class="nav-item"
+         onclick="showPage('accountPage')">
+        <div class="nav-icon">👤</div>
         บัญชี
-
     </div>
 
 </nav>
 
-
-<!-- ======================================================
-MODAL
-====================================================== -->
-
-<div
-    class="modal"
-    id="modal"
-    onclick="
-    if(event.target===this){
-        closeModal()
-    }">
-
-    <div class="modal-box">
-
-        <div id="modalContent"></div>
-
-    </div>
-
-</div>
-
-
-<div
-    class="toast"
-    id="toast">
-</div>
+<div id="toast" class="toast"></div>
 
 </div>
 
 
 <script>
 
-/* ======================================================
-PRODUCT DATA
-====================================================== */
+/* =====================================================
+                    PRODUCTS
+===================================================== */
 
 const products = [
 
-    {
-        id:1,
-        name:"Daisy Crochet Bag",
-        category:"กระเป๋า",
-        maker:"พี่มะลิ",
-        price:890,
-        image: "image_0_0.png",
-        desc:
-        "กระเป๋าโครเชต์ถักมือ ลายดอกไม้ เนื้องานละเอียด เหมาะสำหรับใช้ในชีวิตประจำวัน",
-        colors:[
-            "#eee2cf",
-            "#e5a48e",
-            "#9eaf82"
-        ]
-    },
+{
+    id:1,
+    name:"กระเป๋าถักไหมพรม",
+    category:"กระเป๋าถัก",
+    price:159,
+    image:"https://upload.wikimedia.org/wikipedia/commons/f/f1/Crocheted_bucket_handbag.JPG",
+    description:"กระเป๋าถักโครเชต์จากไหมพรม ถักเป็นลายแน่น เหมาะสำหรับใช้ในชีวิตประจำวัน"
+},
 
+{
+    id:2,
+    name:"หมวกโครเชต์ถักมือ",
+    category:"หมวกถัก",
+    price:99,
+    image:"https://upload.wikimedia.org/wikipedia/commons/2/2f/Crochet_hat.jpg",
+    description:"หมวกโครเชต์ถักมือจากไหมพรม เนื้อนุ่ม เหมาะสำหรับแต่งลุคแบบ Handmade"
+},
 
-    {
-        id:2,
-        name:"Handmade Crochet Doll",
-        category:"ตุ๊กตา",
-        maker:"พี่แอน",
-        price:590,
-        image: "image_0_1.png",
-        desc:
-        "ตุ๊กตาโครเชต์แฮนด์เมด ถักด้วยมือ เหมาะสำหรับเป็นของขวัญและของสะสม",
-        colors:[
-            "#c98f7c",
-            "#eee2cf",
-            "#9a7561"
-        ]
-    },
+{
+    id:3,
+    name:"ตุ๊กตาหมี Amigurumi",
+    category:"ตุ๊กตาถัก",
+    price:129,
+    image:"https://upload.wikimedia.org/wikipedia/commons/a/a8/Amigurumi-bear.jpg",
+    description:"ตุ๊กตาถัก Amigurumi ทำจากไหมพรม เหมาะสำหรับเป็นของขวัญหรือของสะสม"
+},
 
-
-    {
-        id:3,
-        name:"Crochet Flower Bag",
-        category:"กระเป๋า",
-        maker:"พี่ฝน",
-        price:690,
-        image: "image_0_2.png",
-        desc:
-        "กระเป๋าถักโครเชต์สไตล์มินิมอล น้ำหนักเบา ใช้ได้ทุกวัน",
-        colors:[
-            "#e29aa7",
-            "#e5c55e",
-            "#58785c"
-        ]
-    },
-
-
-    {
-        id:4,
-        name:"Pink Flower Crochet Bag",
-        category:"กระเป๋า",
-        maker:"พี่มะลิ",
-        price:850,
-        image: "image_0_3.png",
-        desc:
-        "กระเป๋าถักลายดอกไม้ งาน handmade สีสันน่ารัก",
-        colors:[
-            "#e29aa7",
-            "#eee2cf",
-            "#9eaf82"
-        ]
-    },
-
-
-    {
-        id:5,
-        name:"Crochet Handmade Tote",
-        category:"กระเป๋า",
-        maker:"พี่แอน",
-        price:790,
-        image: "image_0_4.png",
-        desc:
-        "กระเป๋าถักมือสไตล์ Cozy มีรายละเอียดลายถักสวยงาม",
-        colors:[
-            "#c8a889",
-            "#eee2cf",
-            "#9a7561"
-        ]
-    },
-
-
-    {
-        id:6,
-        name:"Crochet Doll",
-        category:"ตุ๊กตา",
-        maker:"พี่ฝน",
-        price:620,
-        image: "image_0_5.png",
-        desc:
-        "ตุ๊กตาถักมือสไตล์ Amigurumi รายละเอียดน่ารัก เหมาะสำหรับเป็นของขวัญ",
-        colors:[
-            "#e5c55e",
-            "#e8903e",
-            "#9eaf82"
-        ]
-    }
+{
+    id:4,
+    name:"พวงกุญแจดอกไม้ถัก",
+    category:"พวงกุญแจถัก",
+    price:49,
+    image:"https://upload.wikimedia.org/wikipedia/commons/a/a5/Szyde%C5%82kowa_zawieszka.jpg",
+    description:"พวงกุญแจโครเชต์ลายดอกไม้ขนาดกะทัดรัด เหมาะสำหรับห้อยกระเป๋า"
+}
 
 ];
 
 
-/* ======================================================
-RENDER PRODUCTS
-====================================================== */
+/* =====================================================
+                    COLORS
+===================================================== */
 
-function renderProducts(list=products){
+const colors = [
+{name:"ครีม",hex:"#F3E5D2"},
+{name:"เบจ",hex:"#D7B899"},
+{name:"ชมพู",hex:"#E98FA3"},
+{name:"ชมพูอ่อน",hex:"#F5C2CE"},
+{name:"แดง",hex:"#C94B59"},
+{name:"ส้ม",hex:"#E58A45"},
+{name:"เหลือง",hex:"#E5C85B"},
+{name:"เขียว",hex:"#83A878"},
+{name:"มิ้นต์",hex:"#91C9B7"},
+{name:"ฟ้า",hex:"#8DB6D8"},
+{name:"ม่วง",hex:"#9D82B9"},
+{name:"น้ำตาล",hex:"#795848"},
+{name:"เทา",hex:"#969696"},
+{name:"ดำ",hex:"#333333"}
+];
 
-    const box =
-    document.getElementById("products");
 
-    box.innerHTML="";
+/* =====================================================
+                    STORAGE
+===================================================== */
 
-    list.forEach(p=>{
+const defaultShop = {
 
-        box.innerHTML += `
+    name:"ARAYA SHOP",
 
-        <div class="product">
+    username:"araya_handmade",
 
-            <button
-                class="favorite"
-                onclick="favorite(event)">
-                ♡
-            </button>
+    owner:"อารยา",
+
+    phone:"",
+
+    email:"",
+
+    address:"",
+
+    description:
+    "ร้านสินค้าไหมพรมแฮนด์เมด ถักด้วยความตั้งใจทุกชิ้น",
+
+    open:true
+
+};
+
+
+let shop =
+    JSON.parse(
+        localStorage.getItem("arayaShop")
+    ) || defaultShop;
+
+
+let cart =
+    JSON.parse(
+        localStorage.getItem("arayaCart")
+    ) || [];
+
+
+let favorites =
+    JSON.parse(
+        localStorage.getItem("arayaFavorites")
+    ) || [];
+
+
+let orders =
+    JSON.parse(
+        localStorage.getItem("arayaOrders")
+    ) || [];
+
+
+let selectedProduct = products[0];
+
+let selectedColor = colors[2];
+
+let previousPage = "homePage";
+
+
+/* =====================================================
+                    SAVE STORAGE
+===================================================== */
+
+function saveAll(){
+
+    localStorage.setItem(
+        "arayaShop",
+        JSON.stringify(shop)
+    );
+
+    localStorage.setItem(
+        "arayaCart",
+        JSON.stringify(cart)
+    );
+
+    localStorage.setItem(
+        "arayaFavorites",
+        JSON.stringify(favorites)
+    );
+
+    localStorage.setItem(
+        "arayaOrders",
+        JSON.stringify(orders)
+    );
+}
+
+
+/* =====================================================
+                    PAGE SYSTEM
+===================================================== */
+
+function showPage(page){
+
+    document
+    .querySelectorAll(".page")
+    .forEach(p=>{
+        p.classList.remove("active");
+    });
+
+    document
+    .getElementById(page)
+    .classList.add("active");
+
+    updateNav(page);
+
+    if(page==="productsPage")
+        renderProducts(products);
+
+    if(page==="cartPage")
+        renderCart();
+
+    if(page==="favoritePage")
+        renderFavorites();
+
+    if(page==="orderPage")
+        renderOrders();
+
+    if(page==="incomePage")
+        renderIncome();
+
+    if(page==="shopInfoPage")
+        loadShopInfo();
+
+    if(page==="settingsPage")
+        loadSettings();
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+function goBack(){
+    showPage(previousPage);
+}
+
+
+/* =====================================================
+                     NAV
+===================================================== */
+
+function updateNav(page){
+
+    document
+    .querySelectorAll(".nav-item")
+    .forEach(item=>{
+        item.classList.remove("active");
+    });
+
+    if(page==="homePage")
+        navHome.classList.add("active");
+
+    if(page==="productsPage")
+        navProducts.classList.add("active");
+
+    if(page==="designerPage")
+        navDesigner.classList.add("active");
+
+    if(page==="orderPage")
+        navOrder.classList.add("active");
+
+    if(
+        page==="accountPage" ||
+        page==="incomePage" ||
+        page==="shopInfoPage" ||
+        page==="settingsPage"
+    )
+        navAccount.classList.add("active");
+}
+
+
+/* =====================================================
+                    PRODUCT CARD
+===================================================== */
+
+function productCard(product){
+
+    const liked =
+        favorites.includes(product.id);
+
+    return `
+
+    <div class="product-card">
+
+        <div class="product-photo">
 
             <img
-                src="${p.image}"
-                alt="${p.name}"
+                src="${product.image}"
+                alt="${product.name}"
                 loading="lazy">
 
-            <div class="product-info">
+            <button
+                class="favorite-btn"
+                onclick="toggleFavorite(${product.id})">
 
-                <span class="tag">
-                    ${p.category}
-                </span>
+                ${liked ? "❤️":"♡"}
 
-                <div class="product-name">
-                    ${p.name}
-                </div>
+            </button>
 
-                <div class="maker">
-                    🧶 ถักโดย ${p.maker}
-                </div>
+        </div>
+
+        <div class="product-info">
+
+            <span class="tag">
+                ${product.category}
+            </span>
+
+            <div class="product-name">
+                ${product.name}
+            </div>
+
+            <div class="product-desc">
+                ${product.description}
+            </div>
+
+            <div class="product-bottom">
 
                 <div class="price">
-                    ฿${p.price.toLocaleString()}
+                    ฿${product.price}
                 </div>
 
                 <button
-                    class="buy"
-                    onclick="openProduct(${p.id})">
-
+                    class="view-btn"
+                    onclick="openDetail(${product.id})">
                     ดูสินค้า
-
                 </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    `;
+}
+
+
+/* =====================================================
+                  RENDER PRODUCTS
+===================================================== */
+
+function renderProducts(list){
+
+    const box =
+        document.getElementById(
+            "allProducts"
+        );
+
+    box.innerHTML = "";
+
+    if(list.length===0){
+
+        box.innerHTML =
+        `<div class="empty">ไม่พบสินค้า</div>`;
+
+        return;
+    }
+
+    list.forEach(product=>{
+        box.innerHTML +=
+            productCard(product);
+    });
+}
+
+
+function renderHomeProducts(list){
+
+    const box =
+        document.getElementById(
+            "homeProducts"
+        );
+
+    box.innerHTML = "";
+
+    list.slice(0,4)
+    .forEach(product=>{
+        box.innerHTML +=
+            productCard(product);
+    });
+}
+
+
+/* =====================================================
+                      DETAIL
+===================================================== */
+
+function openDetail(id){
+
+    selectedProduct =
+        products.find(
+            p=>p.id===id
+        );
+
+    previousPage =
+        "homePage";
+
+    detailImage.src =
+        selectedProduct.image;
+
+    detailName.innerText =
+        selectedProduct.name;
+
+    detailPrice.innerText =
+        "฿"+selectedProduct.price;
+
+    detailTag.innerText =
+        selectedProduct.category;
+
+    detailDescription.innerText =
+        selectedProduct.description;
+
+    showPage("detailPage");
+}
+
+
+/* =====================================================
+                      DESIGNER
+===================================================== */
+
+function openDesigner(){
+
+    previousPage =
+        "homePage";
+
+    selectedProduct =
+        products[0];
+
+    showPage("designerPage");
+
+    updateDesigner();
+}
+
+
+function openDesignerFromDetail(){
+
+    previousPage =
+        "detailPage";
+
+    showPage("designerPage");
+
+    updateDesigner();
+}
+
+
+function chooseDesigner(id,button){
+
+    selectedProduct =
+        products.find(
+            p=>p.id===id
+        );
+
+    document
+    .querySelectorAll(
+        "#designerPage .category"
+    )
+    .forEach(x=>{
+        x.classList.remove("active");
+    });
+
+    button.classList.add("active");
+
+    updateDesigner();
+}
+
+
+function updateDesigner(){
+
+    designerImage.src =
+        selectedProduct.image;
+
+    designerImage.alt =
+        selectedProduct.name;
+
+    designerName.innerText =
+        selectedProduct.name;
+
+    updateSelectedColor();
+
+    renderColors();
+}
+
+
+function renderColors(){
+
+    colorGrid.innerHTML = "";
+
+    colors.forEach(color=>{
+
+        const b =
+            document.createElement("button");
+
+        b.className =
+            "color-option";
+
+        if(color.hex===selectedColor.hex)
+            b.classList.add("selected");
+
+        b.style.background =
+            color.hex;
+
+        b.title =
+            color.name;
+
+        b.onclick =
+            ()=>selectColor(color);
+
+        colorGrid.appendChild(b);
+
+    });
+}
+
+
+function selectColor(color){
+
+    selectedColor =
+        color;
+
+    updateSelectedColor();
+
+    renderColors();
+
+    showToast(
+        "เลือกสี "+color.name+" แล้ว 🎨"
+    );
+}
+
+
+function updateSelectedColor(){
+
+    selectedCircle.style.background =
+        selectedColor.hex;
+
+    selectedName.innerText =
+        selectedColor.name;
+
+    selectedHex.innerText =
+        selectedColor.hex;
+
+    colorPreview.style.background =
+        selectedColor.hex;
+}
+
+
+/* =====================================================
+                     CART
+===================================================== */
+
+function addDesignedProduct(){
+
+    cart.push({
+
+        productId:selectedProduct.id,
+
+        name:selectedProduct.name,
+
+        price:selectedProduct.price,
+
+        image:selectedProduct.image,
+
+        color:selectedColor.name,
+
+        colorHex:selectedColor.hex,
+
+        quantity:1
+
+    });
+
+    saveAll();
+
+    updateCartBadge();
+
+    showToast(
+        "เพิ่มสินค้าออกแบบลงตะกร้าแล้ว 🛒"
+    );
+}
+
+
+function addCurrentProduct(){
+
+    cart.push({
+
+        productId:selectedProduct.id,
+
+        name:selectedProduct.name,
+
+        price:selectedProduct.price,
+
+        image:selectedProduct.image,
+
+        color:"สีเดิมของสินค้า",
+
+        colorHex:"#D7B899",
+
+        quantity:1
+
+    });
+
+    saveAll();
+
+    updateCartBadge();
+
+    showToast("เพิ่มสินค้าในตะกร้าแล้ว 🛒");
+}
+
+
+function renderCart(){
+
+    const box =
+        document.getElementById("cartItems");
+
+    const summary =
+        document.getElementById("cartSummary");
+
+    if(cart.length===0){
+
+        box.innerHTML = `
+        <div class="empty">
+            🛒<br><br>
+            ยังไม่มีสินค้าในตะกร้า
+            <br><br>
+            <button class="primary"
+                    onclick="showPage('productsPage')">
+                เลือกสินค้า
+            </button>
+        </div>`;
+
+        summary.innerHTML="";
+
+        return;
+    }
+
+    box.innerHTML="";
+
+    cart.forEach((item,index)=>{
+
+        box.innerHTML += `
+
+        <div class="cart-item">
+
+            <div class="cart-photo">
+                <img src="${item.image}"
+                     alt="${item.name}">
+            </div>
+
+            <div class="cart-info">
+
+                <div class="cart-name">
+                    ${item.name}
+                </div>
+
+                <div class="cart-color">
+                    🎨 ${item.color}
+                </div>
+
+                <div class="cart-price">
+                    ฿${item.price}
+                </div>
+
+                <div class="quantity">
+
+                    <button onclick="changeQuantity(${index},-1)">
+                        −
+                    </button>
+
+                    <span>${item.quantity}</span>
+
+                    <button onclick="changeQuantity(${index},1)">
+                        +
+                    </button>
+
+                    <button
+                        class="delete-btn"
+                        onclick="removeCart(${index})">
+                        🗑️
+                    </button>
+
+                </div>
 
             </div>
 
@@ -3001,147 +1744,695 @@ function renderProducts(list=products){
 
     });
 
-}
+    const total =
+        cart.reduce(
+            (sum,item)=>
+                sum+
+                item.price*
+                item.quantity,
+            0
+        );
 
-renderProducts();
+    summary.innerHTML = `
 
+    <div class="summary">
 
-/* ======================================================
-PRODUCT DETAIL
-====================================================== */
-
-let selectedProduct=null;
-
-
-function openProduct(id){
-
-    selectedProduct =
-    products.find(x=>x.id===id);
-
-
-    document.getElementById("modalContent").innerHTML = `
-
-        <button
-            class="back"
-            onclick="closeModal()">
-
-            ← ย้อนกลับ
-
-        </button>
-
-
-        <img
-            class="detail-image"
-            src="${selectedProduct.image}">
-
-
-        <div class="detail-title">
-            ${selectedProduct.name}
+        <div class="summary-row">
+            <span>จำนวนรายการ</span>
+            <span>${cart.length}</span>
         </div>
 
-
-        <div class="detail-maker">
-            🧑‍🎨 Handmade by ${selectedProduct.maker}
+        <div class="summary-row">
+            <span>ค่าจัดส่ง</span>
+            <span>ฟรี</span>
         </div>
 
-
-        <div class="detail-price">
-            ฿${selectedProduct.price.toLocaleString()}
+        <div class="total">
+            <span>ยอดรวม</span>
+            <span>฿${total}</span>
         </div>
-
-
-        <div class="description">
-            ${selectedProduct.desc}
-        </div>
-
 
         <button
             class="primary"
-            onclick="openCustomLab()">
-
-            🎨 ทดลองเปลี่ยนสีสินค้า
-
+            style="width:100%;margin-top:15px"
+            onclick="checkout()">
+            💳 ยืนยันการสั่งซื้อ
         </button>
 
-
-        <button
-            class="secondary"
-            onclick="addCart()">
-
-            🛒 เพิ่มลงตะกร้า
-
-        </button>
+    </div>
 
     `;
+}
 
 
-    openModal();
+function changeQuantity(index,change){
+
+    cart[index].quantity += change;
+
+    if(cart[index].quantity<=0)
+        cart.splice(index,1);
+
+    saveAll();
+
+    updateCartBadge();
+
+    renderCart();
+}
+
+
+function removeCart(index){
+
+    cart.splice(index,1);
+
+    saveAll();
+
+    updateCartBadge();
+
+    renderCart();
+
+    showToast("ลบสินค้าแล้ว");
+}
+
+
+function updateCartBadge(){
+
+    const count =
+        cart.reduce(
+            (sum,item)=>
+                sum+item.quantity,
+            0
+        );
+
+    cartBadge.innerText =
+        count;
+}
+
+
+/* =====================================================
+                    CHECKOUT
+===================================================== */
+
+function checkout(){
+
+    if(cart.length===0){
+
+        showToast("ไม่มีสินค้าในตะกร้า");
+
+        return;
+    }
+
+    const total =
+        cart.reduce(
+            (sum,item)=>
+                sum+
+                item.price*
+                item.quantity,
+            0
+        );
+
+    const itemCount =
+        cart.reduce(
+            (sum,item)=>
+                sum+
+                item.quantity,
+            0
+        );
+
+    const order = {
+
+        id:
+            "ARAYA-"+Date.now(),
+
+        date:
+            new Date().toLocaleString("th-TH"),
+
+        total:total,
+
+        items:itemCount,
+
+        status:"ชำระเงินแล้ว"
+
+    };
+
+    orders.push(order);
+
+    cart=[];
+
+    saveAll();
+
+    updateCartBadge();
+
+    renderOrders();
+
+    showPage("orderPage");
+
+    showToast(
+        "สั่งซื้อสำเร็จ 🎉 รายได้ร้านอัปเดตแล้ว"
+    );
+}
+
+
+/* =====================================================
+                     ORDERS
+===================================================== */
+
+function renderOrders(){
+
+    const box =
+        document.getElementById(
+            "ordersList"
+        );
+
+    if(orders.length===0){
+
+        box.innerHTML=`
+        <div class="empty">
+            📦<br><br>
+            ยังไม่มีคำสั่งซื้อ
+        </div>`;
+
+        return;
+    }
+
+    box.innerHTML="";
+
+    [...orders]
+    .reverse()
+    .forEach(order=>{
+
+        box.innerHTML += `
+
+        <div class="order-card">
+
+            <div>
+                <strong style="font-size:11px">
+                    ${order.id}
+                </strong>
+            </div>
+
+            <div style="font-size:8px;color:#927d72;margin-top:5px">
+                ${order.date}
+            </div>
+
+            <div class="order-status">
+                ● ${order.status}
+            </div>
+
+            <div style="margin-top:10px;font-size:10px">
+                ${order.items} ชิ้น
+            </div>
+
+            <div style="margin-top:7px;
+                        color:#8b5c48;
+                        font-size:15px;
+                        font-weight:bold">
+                ฿${order.total}
+            </div>
+
+        </div>
+
+        `;
+
+    });
+}
+
+
+/* =====================================================
+                     INCOME
+===================================================== */
+
+function openIncome(){
+
+    showPage("incomePage");
+
+    renderIncome();
+}
+
+
+function renderIncome(){
+
+    const total =
+        orders.reduce(
+            (sum,order)=>
+                sum+order.total,
+            0
+        );
+
+    const itemCount =
+        orders.reduce(
+            (sum,order)=>
+                sum+order.items,
+            0
+        );
+
+    incomeTotal.innerText =
+        "฿"+total.toLocaleString();
+
+    incomeOrders.innerText =
+        orders.length;
+
+    incomeItems.innerText =
+        itemCount;
+
+
+    if(orders.length===0){
+
+        salesList.innerHTML=`
+        <div class="empty">
+            ยังไม่มีรายการขาย
+        </div>`;
+
+        return;
+    }
+
+    salesList.innerHTML="";
+
+    [...orders]
+    .reverse()
+    .forEach(order=>{
+
+        salesList.innerHTML += `
+
+        <div class="sales-item">
+
+            <div>
+                <div class="sales-name">
+                    ${order.id}
+                </div>
+
+                <div class="sales-date">
+                    ${order.date}
+                    • ${order.items} ชิ้น
+                </div>
+            </div>
+
+            <div class="sales-amount">
+                +฿${order.total.toLocaleString()}
+            </div>
+
+        </div>
+
+        `;
+
+    });
+}
+
+
+function resetSales(){
+
+    if(
+        !confirm(
+            "ต้องการล้างข้อมูลยอดขายทั้งหมดหรือไม่?"
+        )
+    )
+        return;
+
+    orders=[];
+
+    saveAll();
+
+    renderIncome();
+
+    renderOrders();
+
+    showToast(
+        "ล้างข้อมูลยอดขายแล้ว"
+    );
+}
+
+
+/* =====================================================
+                SHOP INFORMATION
+===================================================== */
+
+function openShopInfo(){
+
+    showPage("shopInfoPage");
+
+    loadShopInfo();
+}
+
+
+function loadShopInfo(){
+
+    infoShopName.value =
+        shop.name || "";
+
+    infoOwner.value =
+        shop.owner || "";
+
+    infoPhone.value =
+        shop.phone || "";
+
+    infoEmail.value =
+        shop.email || "";
+
+    infoAddress.value =
+        shop.address || "";
+
+    infoDescription.value =
+        shop.description || "";
+
+    displayShopName.innerText =
+        shop.name || "-";
+
+    displayPhone.innerText =
+        shop.phone || "-";
+
+    displayEmail.innerText =
+        shop.email || "-";
+}
+
+
+function saveShopInfo(){
+
+    shop.name =
+        infoShopName.value.trim()
+        || "ARAYA SHOP";
+
+    shop.owner =
+        infoOwner.value.trim();
+
+    shop.phone =
+        infoPhone.value.trim();
+
+    shop.email =
+        infoEmail.value.trim();
+
+    shop.address =
+        infoAddress.value.trim();
+
+    shop.description =
+        infoDescription.value.trim();
+
+    saveAll();
+
+    updateShopUI();
+
+    showToast(
+        "บันทึกข้อมูลร้านค้าแล้ว 💾"
+    );
+}
+
+
+/* =====================================================
+                  SHOP SETTINGS
+===================================================== */
+
+function openSettings(){
+
+    showPage("settingsPage");
+
+    loadSettings();
+}
+
+
+function loadSettings(){
+
+    settingShopName.value =
+        shop.name || "";
+
+    settingUsername.value =
+        shop.username || "";
+
+    shopOpen.checked =
+        shop.open !== false;
+}
+
+
+function saveSettings(){
+
+    shop.name =
+        settingShopName.value.trim()
+        || "ARAYA SHOP";
+
+    shop.username =
+        settingUsername.value.trim()
+        || "araya_handmade";
+
+    shop.open =
+        shopOpen.checked;
+
+    saveAll();
+
+    updateShopUI();
+
+    showToast(
+        "บันทึกการตั้งค่าแล้ว ⚙️"
+    );
+}
+
+
+/* =====================================================
+                 UPDATE SHOP UI
+===================================================== */
+
+function updateShopUI(){
+
+    headerShopName.innerText =
+        shop.name;
+
+    accountShopName.innerText =
+        shop.name;
+
+    accountHandle.innerText =
+        "@"+shop.username;
+
+
+    if(shop.open){
+
+        shopStatus.innerText =
+            "● ร้านค้าเปิดอยู่";
+
+        shopStatus.style.background =
+            "#e7f1e4";
+
+        shopStatus.style.color =
+            "#5c8055";
+
+    }else{
+
+        shopStatus.innerText =
+            "● ร้านค้าปิดอยู่";
+
+        shopStatus.style.background =
+            "#f3dddd";
+
+        shopStatus.style.color =
+            "#a45c5c";
+
+    }
 
 }
 
 
-/* ======================================================
-MODAL ACTIONS
-====================================================== */
+/* =====================================================
+                     FAVORITE
+===================================================== */
 
-function openModal(){
-    document.getElementById("modal").style.display = "flex";
+function toggleFavorite(id){
+
+    if(favorites.includes(id)){
+
+        favorites =
+            favorites.filter(
+                x=>x!==id
+            );
+
+    }else{
+
+        favorites.push(id);
+
+    }
+
+    saveAll();
+
+    renderHomeProducts(products);
+
+    renderProducts(products);
+
+    renderFavorites();
 }
 
-function closeModal(){
-    document.getElementById("modal").style.display = "none";
+
+function renderFavorites(){
+
+    const box =
+        document.getElementById(
+            "favoriteProducts"
+        );
+
+    const list =
+        products.filter(
+            p=>favorites.includes(p.id)
+        );
+
+    if(list.length===0){
+
+        box.innerHTML=`
+        <div class="empty">
+            ❤️<br><br>
+            ยังไม่มีสินค้าโปรด
+        </div>`;
+
+        return;
+    }
+
+    box.innerHTML="";
+
+    list.forEach(product=>{
+        box.innerHTML +=
+            productCard(product);
+    });
 }
 
-function addCart(){
-    showToast("เพิ่มลงตะกร้าแล้ว!");
-    closeModal();
+
+/* =====================================================
+                      SEARCH
+===================================================== */
+
+function searchProducts(){
+
+    const keyword =
+        searchInput.value
+        .toLowerCase()
+        .trim();
+
+    const result =
+        products.filter(
+            p=>
+                p.name
+                .toLowerCase()
+                .includes(keyword)
+                ||
+                p.category
+                .toLowerCase()
+                .includes(keyword)
+        );
+
+    renderHomeProducts(result);
 }
 
-function showToast(msg){
-    const toast = document.getElementById("toast");
-    toast.textContent = msg;
-    toast.style.display = "block";
-    setTimeout(()=>{
-        toast.style.display = "none";
-    },2000);
-}
 
-function favorite(e){
-    e.stopPropagation();
-    showToast("เพิ่มในรายการโปรด!");
-}
+/* =====================================================
+                     FILTER
+===================================================== */
 
-/* ======================================================
-TEMPORARY ACTIONS (placeholder)
-====================================================== */
-function openCart(){showToast("ตะกร้าสินค้า (กำลังพัฒนา)");}
-function openAccount(){showToast("บัญชีผู้ใช้ (กำลังพัฒนา)");}
-function openColorAI(){showToast("Color Match AI (กำลังพัฒนา)");}
-function openMaker(){showToast("เรื่องราวช่างถัก (กำลังพัฒนา)");}
-function openStatus(){showToast("ติดตามสถานะงานถัก (กำลังพัฒนา)");}
-function showAll(){showToast("แสดงสินค้าทั้งหมด");}
-function filterProduct(cat,el){
-    // Update category active style
-    const cats = document.querySelectorAll('.category');
-    cats.forEach(c=>c.classList.remove('active'));
-    el.classList.add('active');
+function homeFilter(category,button){
 
-    if(cat === 'ทั้งหมด'){
-        renderProducts(products);
-    } else {
-        const filtered = products.filter(p=>p.category===cat);
-        renderProducts(filtered);
+    document
+    .querySelectorAll(
+        "#homePage .category"
+    )
+    .forEach(x=>
+        x.classList.remove("active")
+    );
+
+    button.classList.add("active");
+
+    if(category==="ทั้งหมด"){
+
+        renderHomeProducts(products);
+
+    }else{
+
+        renderHomeProducts(
+            products.filter(
+                p=>p.category===category
+            )
+        );
+
     }
 }
-function home(){showToast("หน้าแรก");}
-function selectPattern(el){
-    const patts = document.querySelectorAll('.pattern');
-    patts.forEach(p=>p.classList.remove('active'));
-    el.classList.add('active');
-    showToast("เลือกลายถักแล้ว!");
+
+
+function productFilter(category,button){
+
+    document
+    .querySelectorAll(
+        "#productsPage .category"
+    )
+    .forEach(x=>
+        x.classList.remove("active")
+    );
+
+    button.classList.add("active");
+
+    if(category==="ทั้งหมด"){
+
+        renderProducts(products);
+
+    }else{
+
+        renderProducts(
+            products.filter(
+                p=>p.category===category
+            )
+        );
+
+    }
 }
-function openCustomLab(){showToast("หน้าออกแบบสีไหมพรม (กำลังพัฒนา)");}
+
+
+/* =====================================================
+                       SIZE
+===================================================== */
+
+function openSize(){
+
+    previousPage =
+        "detailPage";
+
+    showPage("sizePage");
+}
+
+
+/* =====================================================
+                       TOAST
+===================================================== */
+
+function showToast(message){
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+    toast.innerText =
+        message;
+
+    toast.style.display =
+        "block";
+
+    setTimeout(()=>{
+        toast.style.display =
+            "none";
+    },2200);
+}
+
+
+/* =====================================================
+                       INIT
+===================================================== */
+
+renderHomeProducts(products);
+
+renderProducts(products);
+
+renderFavorites();
+
+renderOrders();
+
+renderColors();
+
+updateSelectedColor();
+
+updateCartBadge();
+
+updateShopUI();
 
 </script>
+
 </body>
 </html>
+```
