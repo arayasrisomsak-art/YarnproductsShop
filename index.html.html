@@ -1,0 +1,3147 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ARAYA SHOP | Handmade Knit</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,"Noto Sans Thai",sans-serif;
+}
+
+body{
+    background:#e7dfd8;
+    color:#382d27;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+}
+
+.app{
+    width:430px;
+    max-width:100%;
+    min-height:100vh;
+    background:#fffaf6;
+    position:relative;
+    overflow:hidden;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    height:70px;
+    padding:10px 15px;
+    background:#fffaf6;
+    border-bottom:1px solid #eaded5;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:50;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.logo-icon{
+    width:42px;
+    height:42px;
+    border-radius:14px;
+    background:#8b5b46;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+.logo-name{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.logo-sub{
+    font-size:8px;
+    color:#a1877b;
+    margin-top:2px;
+}
+
+.header-buttons{
+    display:flex;
+    gap:7px;
+}
+
+.icon-btn{
+    width:38px;
+    height:38px;
+    border:1px solid #e5d8cf;
+    border-radius:12px;
+    background:white;
+    cursor:pointer;
+    font-size:17px;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+    height:calc(100vh - 70px);
+    overflow-y:auto;
+    padding-bottom:90px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    margin:15px;
+    min-height:235px;
+    border-radius:24px;
+    overflow:hidden;
+    position:relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(57,39,31,.88),
+            rgba(57,39,31,.25)
+        ),
+        url("https://i.etsystatic.com/44715247/r/il/d481c4/7706522484/il_fullxfull.7706522484_6ecy.jpg")
+        center/cover;
+
+    color:white;
+    padding:25px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.hero small{
+    font-size:10px;
+    letter-spacing:.5px;
+}
+
+.hero h1{
+    font-size:29px;
+    line-height:1.25;
+    margin:8px 0;
+}
+
+.hero p{
+    width:75%;
+    font-size:11px;
+    line-height:1.7;
+}
+
+.hero button{
+    width:175px;
+    margin-top:14px;
+    padding:11px;
+    border:0;
+    border-radius:12px;
+    background:white;
+    color:#754d3c;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ================= QUICK ================= */
+
+.quick{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    padding:0 15px 18px;
+}
+
+.quick-card{
+    min-width:125px;
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:17px;
+    padding:13px 11px;
+    cursor:pointer;
+}
+
+.quick-card:hover{
+    transform:translateY(-2px);
+}
+
+.qicon{
+    font-size:24px;
+}
+
+.quick-card b{
+    display:block;
+    font-size:11px;
+    margin-top:6px;
+}
+
+.quick-card span{
+    display:block;
+    font-size:9px;
+    color:#998177;
+    margin-top:3px;
+}
+
+/* ================= TITLE ================= */
+
+.section-title{
+    padding:5px 16px 12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.section-title h2{
+    font-size:18px;
+}
+
+.section-title button{
+    border:0;
+    background:none;
+    color:#8b5b46;
+    font-size:10px;
+    cursor:pointer;
+}
+
+/* ================= CATEGORY ================= */
+
+.categories{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:0 16px 18px;
+}
+
+.category{
+    white-space:nowrap;
+    padding:8px 14px;
+    background:#f0e7e1;
+    border-radius:20px;
+    font-size:10px;
+    cursor:pointer;
+}
+
+.category.active{
+    background:#8b5b46;
+    color:white;
+}
+
+/* ================= PRODUCTS ================= */
+
+.products{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    padding:0 16px 20px;
+}
+
+.product{
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:18px;
+    overflow:hidden;
+    position:relative;
+}
+
+.product img{
+    width:100%;
+    height:170px;
+    display:block;
+    object-fit:cover;
+    background:#eee5df;
+}
+
+.favorite{
+    position:absolute;
+    right:8px;
+    top:8px;
+    width:32px;
+    height:32px;
+    border:0;
+    border-radius:50%;
+    background:white;
+    cursor:pointer;
+    font-size:18px;
+    z-index:2;
+}
+
+.product-info{
+    padding:10px;
+}
+
+.tag{
+    display:inline-block;
+    background:#f0dfd5;
+    color:#815744;
+    padding:4px 7px;
+    border-radius:7px;
+    font-size:8px;
+}
+
+.product-name{
+    font-weight:bold;
+    font-size:12px;
+    margin-top:7px;
+}
+
+.maker{
+    font-size:9px;
+    color:#9a8277;
+    margin-top:4px;
+}
+
+.price{
+    color:#8b5b46;
+    font-size:16px;
+    font-weight:bold;
+    margin-top:8px;
+}
+
+.product button.buy{
+    width:100%;
+    margin-top:8px;
+    padding:9px;
+    border:0;
+    background:#8b5b46;
+    color:white;
+    border-radius:9px;
+    cursor:pointer;
+    font-size:10px;
+}
+
+/* ================= EXPERIENCE ================= */
+
+.experience{
+    margin:0 16px 20px;
+    background:#f1e5dd;
+    padding:18px;
+    border-radius:20px;
+}
+
+.experience b{
+    font-size:14px;
+}
+
+.experience p{
+    font-size:10px;
+    color:#876f64;
+    line-height:1.7;
+    margin-top:7px;
+}
+
+.secondary{
+    width:100%;
+    border:1px solid #8b5b46;
+    background:white;
+    color:#8b5b46;
+    padding:12px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+/* ================= BOTTOM NAV ================= */
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    width:430px;
+    max-width:100%;
+    height:72px;
+    background:rgba(255,250,246,.98);
+    border-top:1px solid #eaded5;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    z-index:60;
+}
+
+.nav-item{
+    text-align:center;
+    color:#9b8175;
+    font-size:9px;
+    cursor:pointer;
+}
+
+.nav-icon{
+    font-size:21px;
+    margin-bottom:4px;
+}
+
+.nav-item.active{
+    color:#8b5b46;
+    font-weight:bold;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(40,28,22,.62);
+    display:none;
+    align-items:flex-end;
+    justify-content:center;
+    z-index:100;
+}
+
+.modal-box{
+    width:430px;
+    max-width:100%;
+    max-height:94vh;
+    overflow-y:auto;
+    background:#fffaf6;
+    border-radius:27px 27px 0 0;
+    padding:20px;
+    animation:slideUp .25s ease;
+}
+
+@keyframes slideUp{
+    from{
+        transform:translateY(100%);
+    }
+    to{
+        transform:translateY(0);
+    }
+}
+
+.back{
+    border:0;
+    background:#f0e7e1;
+    color:#694b3d;
+    padding:9px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:11px;
+    margin-bottom:14px;
+}
+
+/* ================= DETAIL ================= */
+
+.detail-image{
+    width:100%;
+    height:290px;
+    object-fit:cover;
+    border-radius:18px;
+    background:#eee5df;
+}
+
+.detail-title{
+    font-size:22px;
+    font-weight:bold;
+    margin-top:12px;
+}
+
+.detail-maker{
+    font-size:10px;
+    color:#957c70;
+    margin-top:4px;
+}
+
+.detail-price{
+    font-size:22px;
+    color:#8b5b46;
+    font-weight:bold;
+    margin-top:7px;
+}
+
+.description{
+    font-size:11px;
+    line-height:1.7;
+    color:#786960;
+    margin-top:9px;
+}
+
+.primary{
+    width:100%;
+    border:0;
+    background:#8b5b46;
+    color:white;
+    padding:13px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-top:12px;
+}
+
+/* ================= CUSTOM COLOR LAB ================= */
+
+.custom-preview{
+    background:#f1e8e1;
+    border-radius:22px;
+    padding:20px;
+    margin-top:15px;
+    text-align:center;
+}
+
+/* กระเป๋าตัวอย่าง */
+
+.preview-bag{
+    width:195px;
+    height:155px;
+    margin:50px auto 15px;
+    background:#e5a48e;
+    border-radius:22px 22px 28px 28px;
+    position:relative;
+
+    box-shadow:
+        inset 0 0 0 7px rgba(255,255,255,.18),
+        0 12px 22px rgba(80,50,40,.18);
+
+    transition:.35s;
+}
+
+/* หูกระเป๋า */
+
+.preview-bag::before{
+    content:"";
+    position:absolute;
+
+    width:105px;
+    height:58px;
+
+    border:12px solid #e5a48e;
+    border-bottom:0;
+
+    border-radius:70px 70px 0 0;
+
+    left:33px;
+    top:-48px;
+
+    transition:.35s;
+}
+
+/* ลายถัก */
+
+.preview-bag::after{
+    content:"✿  ✿  ✿";
+    position:absolute;
+    left:15px;
+    right:15px;
+    top:55px;
+
+    font-size:29px;
+    color:#fff8ee;
+    letter-spacing:4px;
+}
+
+/* ================= YARN ================= */
+
+.yarn-title{
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.selected-name{
+    color:#8b5b46;
+}
+
+.yarn-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:12px;
+    margin-top:14px;
+}
+
+.yarn{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    position:relative;
+    cursor:pointer;
+
+    box-shadow:
+        inset 4px 4px 8px rgba(255,255,255,.45),
+        inset -5px -5px 8px rgba(0,0,0,.14),
+        0 2px 5px rgba(0,0,0,.15);
+
+    transition:.2s;
+}
+
+.yarn:hover{
+    transform:scale(1.1);
+}
+
+.yarn::before{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border:2px solid rgba(255,255,255,.28);
+    border-radius:50%;
+}
+
+.yarn::after{
+    content:"";
+    position:absolute;
+    width:13px;
+    height:13px;
+    background:rgba(255,255,255,.22);
+    border-radius:50%;
+    left:16px;
+    top:16px;
+}
+
+.yarn.selected{
+    outline:3px solid #8b5b46;
+    outline-offset:3px;
+    transform:scale(1.08);
+}
+
+/* COLORS */
+
+.cream{background:#eee2cf;}
+.beige{background:#c8a889;}
+.peach{background:#e5a48e;}
+.pink{background:#e29aa7;}
+.red{background:#b9444e;}
+.orange{background:#e8903e;}
+.yellow{background:#e5c55e;}
+.sage{background:#9eaf82;}
+.green{background:#58785c;}
+.mint{background:#8fc0b1;}
+.blue{background:#7599ba;}
+.sky{background:#9dc8d6;}
+.purple{background:#8d7cae;}
+.lavender{background:#b7a2ca;}
+.brown{background:#79584a;}
+.mocha{background:#9a7561;}
+.gray{background:#96928e;}
+.black{background:#353434;}
+
+/* ================= COLOR INFO ================= */
+
+.color-preview{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:15px;
+    padding:12px;
+    margin-top:15px;
+}
+
+.color-ball{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+
+    box-shadow:
+        inset 5px 5px 10px rgba(255,255,255,.45),
+        inset -5px -5px 10px rgba(0,0,0,.15);
+}
+
+.color-preview b{
+    font-size:12px;
+}
+
+.color-preview span{
+    display:block;
+    color:#92796c;
+    font-size:9px;
+    margin-top:4px;
+}
+
+/* ================= PATTERN ================= */
+
+.pattern-title{
+    margin-top:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.patterns{
+    display:flex;
+    gap:9px;
+    margin-top:10px;
+}
+
+.pattern{
+    flex:1;
+    border:1px solid #e3d5cb;
+    background:white;
+    border-radius:12px;
+    padding:10px;
+    text-align:center;
+    cursor:pointer;
+    font-size:10px;
+}
+
+.pattern.active{
+    background:#8b5b46;
+    color:white;
+}
+
+/* ================= COLOR MATCH ================= */
+
+.palette{
+    height:70px;
+    display:flex;
+    border-radius:15px;
+    overflow:hidden;
+    margin-top:15px;
+}
+
+.palette div{
+    flex:1;
+}
+
+.recommend{
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:16px;
+    padding:14px;
+    margin-top:15px;
+}
+
+.recommend h3{
+    font-size:13px;
+}
+
+.recommend p{
+    font-size:10px;
+    color:#8f786d;
+    line-height:1.7;
+    margin-top:6px;
+}
+
+/* ================= MAKER ================= */
+
+.maker-card{
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:18px;
+    padding:15px;
+    display:flex;
+    gap:12px;
+    margin-top:15px;
+}
+
+.avatar{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#ddc0ae;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:27px;
+}
+
+.maker-card b{
+    font-size:14px;
+}
+
+.maker-card p{
+    font-size:10px;
+    color:#91796e;
+    margin-top:5px;
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline{
+    margin-top:18px;
+}
+
+.timeline-item{
+    display:flex;
+    gap:12px;
+    margin-bottom:18px;
+}
+
+.timeline-icon{
+    width:36px;
+    height:36px;
+    background:#eadbd1;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+
+.timeline-text b{
+    font-size:12px;
+}
+
+.timeline-text p{
+    font-size:10px;
+    color:#8e786d;
+    margin-top:4px;
+}
+
+/* ================= STATUS ================= */
+
+.status{
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:18px;
+    padding:15px;
+    margin-top:15px;
+}
+
+.status-top{
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+}
+
+.progress{
+    height:8px;
+    background:#eaded5;
+    border-radius:10px;
+    margin-top:13px;
+    overflow:hidden;
+}
+
+.progress div{
+    width:72%;
+    height:100%;
+    background:#8b5b46;
+}
+
+/* ================= CART ================= */
+
+.cart-item{
+    display:flex;
+    gap:10px;
+    padding:12px 0;
+    border-bottom:1px solid #eaded5;
+}
+
+.cart-item img{
+    width:75px;
+    height:75px;
+    object-fit:cover;
+    border-radius:12px;
+    background:#eee5df;
+}
+
+.cart-info{
+    flex:1;
+}Here's the visual code for the e-commerce interface, including the recommended knitted products with distinct designs and correct descriptive tags to avoid confusion.
+
+```html
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ARAYA SHOP | Handmade Knit</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,"Noto Sans Thai",sans-serif;
+}
+
+body{
+    background:#e7dfd8;
+    color:#382d27;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+}
+
+.app{
+    width:430px;
+    max-width:100%;
+    min-height:100vh;
+    background:#fffaf6;
+    position:relative;
+    overflow:hidden;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    height:70px;
+    padding:10px 15px;
+    background:#fffaf6;
+    border-bottom:1px solid #eaded5;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:50;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.logo-icon{
+    width:42px;
+    height:42px;
+    border-radius:14px;
+    background:#8b5b46;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+.logo-name{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.logo-sub{
+    font-size:8px;
+    color:#a1877b;
+    margin-top:2px;
+}
+
+.header-buttons{
+    display:flex;
+    gap:7px;
+}
+
+.icon-btn{
+    width:38px;
+    height:38px;
+    border:1px solid #e5d8cf;
+    border-radius:12px;
+    background:white;
+    cursor:pointer;
+    font-size:17px;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+    height:calc(100vh - 70px);
+    overflow-y:auto;
+    padding-bottom:90px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    margin:15px;
+    min-height:235px;
+    border-radius:24px;
+    overflow:hidden;
+    position:relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(57,39,31,.88),
+            rgba(57,39,31,.25)
+        ),
+        url("[https://i.etsystatic.com/44715247/r/il/d481c4/7706522484/il_fullxfull.7706522484_6ecy.jpg](https://i.etsystatic.com/44715247/r/il/d481c4/7706522484/il_fullxfull.7706522484_6ecy.jpg)")
+        center/cover;
+
+    color:white;
+    padding:25px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.hero small{
+    font-size:10px;
+    letter-spacing:.5px;
+}
+
+.hero h1{
+    font-size:29px;
+    line-height:1.25;
+    margin:8px 0;
+}
+
+.hero p{
+    width:75%;
+    font-size:11px;
+    line-height:1.7;
+}
+
+.hero button{
+    width:175px;
+    margin-top:14px;
+    padding:11px;
+    border:0;
+    border-radius:12px;
+    background:white;
+    color:#754d3c;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ================= QUICK ================= */
+
+.quick{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    padding:0 15px 18px;
+}
+
+.quick-card{
+    min-width:125px;
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:17px;
+    padding:13px 11px;
+    cursor:pointer;
+}
+
+.quick-card:hover{
+    transform:translateY(-2px);
+}
+
+.qicon{
+    font-size:24px;
+}
+
+.quick-card b{
+    display:block;
+    font-size:11px;
+    margin-top:6px;
+}
+
+.quick-card span{
+    display:block;
+    font-size:9px;
+    color:#998177;
+    margin-top:3px;
+}
+
+/* ================= TITLE ================= */
+
+.section-title{
+    padding:5px 16px 12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.section-title h2{
+    font-size:18px;
+}
+
+.section-title button{
+    border:0;
+    background:none;
+    color:#8b5b46;
+    font-size:10px;
+    cursor:pointer;
+}
+
+/* ================= CATEGORY ================= */
+
+.categories{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:0 16px 18px;
+}
+
+.category{
+    white-space:nowrap;
+    padding:8px 14px;
+    background:#f0e7e1;
+    border-radius:20px;
+    font-size:10px;
+    cursor:pointer;
+}
+
+.category.active{
+    background:#8b5b46;
+    color:white;
+}
+
+/* ================= PRODUCTS ================= */
+
+.products{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    padding:0 16px 20px;
+}
+
+.product{
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:18px;
+    overflow:hidden;
+    position:relative;
+}
+
+.product img{
+    width:100%;
+    height:170px;
+    display:block;
+    object-fit:cover;
+    background:#eee5df;
+}
+
+.favorite{
+    position:absolute;
+    right:8px;
+    top:8px;
+    width:32px;
+    height:32px;
+    border:0;
+    border-radius:50%;
+    background:white;
+    cursor:pointer;
+    font-size:18px;
+    z-index:2;
+}
+
+.product-info{
+    padding:10px;
+}
+
+.tag{
+    display:inline-block;
+    background:#f0dfd5;
+    color:#815744;
+    padding:4px 7px;
+    border-radius:7px;
+    font-size:8px;
+}
+
+.product-name{
+    font-weight:bold;
+    font-size:12px;
+    margin-top:7px;
+}
+
+.maker{
+    font-size:9px;
+    color:#9a8277;
+    margin-top:4px;
+}
+
+.price{
+    color:#8b5b46;
+    font-size:16px;
+    font-weight:bold;
+    margin-top:8px;
+}
+
+.product button.buy{
+    width:100%;
+    margin-top:8px;
+    padding:9px;
+    border:0;
+    background:#8b5b46;
+    color:white;
+    border-radius:9px;
+    cursor:pointer;
+    font-size:10px;
+}
+
+/* ================= EXPERIENCE ================= */
+
+.experience{
+    margin:0 16px 20px;
+    background:#f1e5dd;
+    padding:18px;
+    border-radius:20px;
+}
+
+.experience b{
+    font-size:14px;
+}
+
+.experience p{
+    font-size:10px;
+    color:#876f64;
+    line-height:1.7;
+    margin-top:7px;
+}
+
+.secondary{
+    width:100%;
+    border:1px solid #8b5b46;
+    background:white;
+    color:#8b5b46;
+    padding:12px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+/* ================= BOTTOM NAV ================= */
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    width:430px;
+    max-width:100%;
+    height:72px;
+    background:rgba(255,250,246,.98);
+    border-top:1px solid #eaded5;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    z-index:60;
+}
+
+.nav-item{
+    text-align:center;
+    color:#9b8175;
+    font-size:9px;
+    cursor:pointer;
+}
+
+.nav-icon{
+    font-size:21px;
+    margin-bottom:4px;
+}
+
+.nav-item.active{
+    color:#8b5b46;
+    font-weight:bold;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(40,28,22,.62);
+    display:none;
+    align-items:flex-end;
+    justify-content:center;
+    z-index:100;
+}
+
+.modal-box{
+    width:430px;
+    max-width:100%;
+    max-height:94vh;
+    overflow-y:auto;
+    background:#fffaf6;
+    border-radius:27px 27px 0 0;
+    padding:20px;
+    animation:slideUp .25s ease;
+}
+
+@keyframes slideUp{
+    from{
+        transform:translateY(100%);
+    }
+    to{
+        transform:translateY(0);
+    }
+}
+
+.back{
+    border:0;
+    background:#f0e7e1;
+    color:#694b3d;
+    padding:9px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:11px;
+    margin-bottom:14px;
+}
+
+/* ================= DETAIL ================= */
+
+.detail-image{
+    width:100%;
+    height:290px;
+    object-fit:cover;
+    border-radius:18px;
+    background:#eee5df;
+}
+
+.detail-title{
+    font-size:22px;
+    font-weight:bold;
+    margin-top:12px;
+}
+
+.detail-maker{
+    font-size:10px;
+    color:#957c70;
+    margin-top:4px;
+}
+
+.detail-price{
+    font-size:22px;
+    color:#8b5b46;
+    font-weight:bold;
+    margin-top:7px;
+}
+
+.description{
+    font-size:11px;
+    line-height:1.7;
+    color:#786960;
+    margin-top:9px;
+}
+
+.primary{
+    width:100%;
+    border:0;
+    background:#8b5b46;
+    color:white;
+    padding:13px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-top:12px;
+}
+
+/* ================= CUSTOM COLOR LAB ================= */
+
+.custom-preview{
+    background:#f1e8e1;
+    border-radius:22px;
+    padding:20px;
+    margin-top:15px;
+    text-align:center;
+}
+
+/* กระเป๋าตัวอย่าง */
+
+.preview-bag{
+    width:195px;
+    height:155px;
+    margin:50px auto 15px;
+    background:#e5a48e;
+    border-radius:22px 22px 28px 28px;
+    position:relative;
+
+    box-shadow:
+        inset 0 0 0 7px rgba(255,255,255,.18),
+        0 12px 22px rgba(80,50,40,.18);
+
+    transition:.35s;
+}
+
+/* หูกระเป๋า */
+
+.preview-bag::before{
+    content:"";
+    position:absolute;
+
+    width:105px;
+    height:58px;
+
+    border:12px solid #e5a48e;
+    border-bottom:0;
+
+    border-radius:70px 70px 0 0;
+
+    left:33px;
+    top:-48px;
+
+    transition:.35s;
+}
+
+/* ลายถัก */
+
+.preview-bag::after{
+    content:"✿  ✿  ✿";
+    position:absolute;
+    left:15px;
+    right:15px;
+    top:55px;
+
+    font-size:29px;
+    color:#fff8ee;
+    letter-spacing:4px;
+}
+
+/* ================= YARN ================= */
+
+.yarn-title{
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.selected-name{
+    color:#8b5b46;
+}
+
+.yarn-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:12px;
+    margin-top:14px;
+}
+
+.yarn{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    position:relative;
+    cursor:pointer;
+
+    box-shadow:
+        inset 4px 4px 8px rgba(255,255,255,.45),
+        inset -5px -5px 8px rgba(0,0,0,.14),
+        0 2px 5px rgba(0,0,0,.15);
+
+    transition:.2s;
+}
+
+.yarn:hover{
+    transform:scale(1.1);
+}
+
+.yarn::before{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border:2px solid rgba(255,255,255,.28);
+    border-radius:50%;
+}
+
+.yarn::after{
+    content:"";
+    position:absolute;
+    width:13px;
+    height:13px;
+    background:rgba(255,255,255,.22);
+    border-radius:50%;
+    left:16px;
+    top:16px;
+}
+
+.yarn.selected{
+    outline:3px solid #8b5b46;
+    outline-offset:3px;
+    transform:scale(1.08);
+}
+
+/* COLORS */
+
+.cream{background:#eee2cf;}
+.beige{background:#c8a889;}
+.peach{background:#e5a48e;}
+.pink{background:#e29aa7;}
+.red{background:#b9444e;}
+.orange{background:#e8903e;}
+.yellow{background:#e5c55e;}
+.sage{background:#9eaf82;}
+.green{background:#58785c;}
+.mint{background:#8fc0b1;}
+.blue{background:#7599ba;}
+.sky{background:#9dc8d6;}
+.purple{background:#8d7cae;}
+.lavender{background:#b7a2ca;}
+.brown{background:#79584a;}
+.mocha{background:#9a7561;}
+.gray{background:#96928e;}
+.black{background:#353434;}
+
+/* ================= COLOR INFO ================= */
+
+.color-preview{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:15px;
+    padding:12px;
+    margin-top:15px;
+}
+
+.color-ball{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+
+    box-shadow:
+        inset 5px 5px 10px rgba(255,255,255,.45),
+        inset -5px -5px 10px rgba(0,0,0,.15);
+}
+
+.color-preview b{
+    font-size:12px;
+}
+
+.color-preview span{
+    display:block;
+    color:#92796c;
+    font-size:9px;
+    margin-top:4px;
+}
+
+/* ================= PATTERN ================= */
+
+.pattern-title{
+    margin-top:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.patterns{
+    display:flex;
+    gap:9px;
+    margin-top:10px;
+}
+
+.pattern{
+    flex:1;
+    border:1px solid #e3d5cb;
+    background:white;
+    border-radius:12px;
+    padding:10px;
+    text-align:center;
+    cursor:pointer;
+    font-size:10px;
+}
+
+.pattern.active{
+    background:#8b5b46;
+    color:white;
+}
+
+/* ================= COLOR MATCH ================= */
+
+.palette{
+    height:70px;
+    display:flex;
+    border-radius:15px;
+    overflow:hidden;
+    margin-top:15px;
+}
+
+.palette div{
+    flex:1;
+}
+
+.recommend{
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:16px;
+    padding:14px;
+    margin-top:15px;
+}
+
+.recommend h3{
+    font-size:13px;
+}
+
+.recommend p{
+    font-size:10px;
+    color:#8f786d;
+    line-height:1.7;
+    margin-top:6px;
+}
+
+/* ================= MAKER ================= */
+
+.maker-card{
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:18px;
+    padding:15px;
+    display:flex;
+    gap:12px;
+    margin-top:15px;
+}
+
+.avatar{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#ddc0ae;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:27px;
+}
+
+.maker-card b{
+    font-size:14px;
+}Here is the visual code for the interface, including the recommended knitted products with distinct designs and accurate names to ensure the tags prevent confusion about the specific items.
+
+```html
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ARAYA SHOP | Handmade Knit</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+    font-family:Arial,"Noto Sans Thai",sans-serif;
+}
+
+body{
+    background:#e7dfd8;
+    color:#382d27;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+}
+
+.app{
+    width:430px;
+    max-width:100%;
+    min-height:100vh;
+    background:#fffaf6;
+    position:relative;
+    overflow:hidden;
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    height:70px;
+    padding:10px 15px;
+    background:#fffaf6;
+    border-bottom:1px solid #eaded5;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    position:sticky;
+    top:0;
+    z-index:50;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:9px;
+}
+
+.logo-icon{
+    width:42px;
+    height:42px;
+    border-radius:14px;
+    background:#8b5b46;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+}
+
+.logo-name{
+    font-size:18px;
+    font-weight:bold;
+}
+
+.logo-sub{
+    font-size:8px;
+    color:#a1877b;
+    margin-top:2px;
+}
+
+.header-buttons{
+    display:flex;
+    gap:7px;
+}
+
+.icon-btn{
+    width:38px;
+    height:38px;
+    border:1px solid #e5d8cf;
+    border-radius:12px;
+    background:white;
+    cursor:pointer;
+    font-size:17px;
+}
+
+/* ================= CONTENT ================= */
+
+.content{
+    height:calc(100vh - 70px);
+    overflow-y:auto;
+    padding-bottom:90px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    margin:15px;
+    min-height:235px;
+    border-radius:24px;
+    overflow:hidden;
+    position:relative;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(57,39,31,.88),
+            rgba(57,39,31,.25)
+        ),
+        url("https://i.etsystatic.com/44715247/r/il/d481c4/7706522484/il_fullxfull.7706522484_6ecy.jpg")
+        center/cover;
+
+    color:white;
+    padding:25px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.hero small{
+    font-size:10px;
+    letter-spacing:.5px;
+}
+
+.hero h1{
+    font-size:29px;
+    line-height:1.25;
+    margin:8px 0;
+}
+
+.hero p{
+    width:75%;
+    font-size:11px;
+    line-height:1.7;
+}
+
+.hero button{
+    width:175px;
+    margin-top:14px;
+    padding:11px;
+    border:0;
+    border-radius:12px;
+    background:white;
+    color:#754d3c;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+/* ================= QUICK ================= */
+
+.quick{
+    display:flex;
+    gap:10px;
+    overflow-x:auto;
+    padding:0 15px 18px;
+}
+
+.quick-card{
+    min-width:125px;
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:17px;
+    padding:13px 11px;
+    cursor:pointer;
+}
+
+.quick-card:hover{
+    transform:translateY(-2px);
+}
+
+.qicon{
+    font-size:24px;
+}
+
+.quick-card b{
+    display:block;
+    font-size:11px;
+    margin-top:6px;
+}
+
+.quick-card span{
+    display:block;
+    font-size:9px;
+    color:#998177;
+    margin-top:3px;
+}
+
+/* ================= TITLE ================= */
+
+.section-title{
+    padding:5px 16px 12px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.section-title h2{
+    font-size:18px;
+}
+
+.section-title button{
+    border:0;
+    background:none;
+    color:#8b5b46;
+    font-size:10px;
+    cursor:pointer;
+}
+
+/* ================= CATEGORY ================= */
+
+.categories{
+    display:flex;
+    gap:8px;
+    overflow-x:auto;
+    padding:0 16px 18px;
+}
+
+.category{
+    white-space:nowrap;
+    padding:8px 14px;
+    background:#f0e7e1;
+    border-radius:20px;
+    font-size:10px;
+    cursor:pointer;
+}
+
+.category.active{
+    background:#8b5b46;
+    color:white;
+}
+
+/* ================= PRODUCTS ================= */
+
+.products{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    padding:0 16px 20px;
+}
+
+.product{
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:18px;
+    overflow:hidden;
+    position:relative;
+}
+
+.product img{
+    width:100%;
+    height:170px;
+    display:block;
+    object-fit:cover;
+    background:#eee5df;
+}
+
+.favorite{
+    position:absolute;
+    right:8px;
+    top:8px;
+    width:32px;
+    height:32px;
+    border:0;
+    border-radius:50%;
+    background:white;
+    cursor:pointer;
+    font-size:18px;
+    z-index:2;
+}
+
+.product-info{
+    padding:10px;
+}
+
+.tag{
+    display:inline-block;
+    background:#f0dfd5;
+    color:#815744;
+    padding:4px 7px;
+    border-radius:7px;
+    font-size:8px;
+}
+
+.product-name{
+    font-weight:bold;
+    font-size:12px;
+    margin-top:7px;
+}
+
+.maker{
+    font-size:9px;
+    color:#9a8277;
+    margin-top:4px;
+}
+
+.price{
+    color:#8b5b46;
+    font-size:16px;
+    font-weight:bold;
+    margin-top:8px;
+}
+
+.product button.buy{
+    width:100%;
+    margin-top:8px;
+    padding:9px;
+    border:0;
+    background:#8b5b46;
+    color:white;
+    border-radius:9px;
+    cursor:pointer;
+    font-size:10px;
+}
+
+/* ================= EXPERIENCE ================= */
+
+.experience{
+    margin:0 16px 20px;
+    background:#f1e5dd;
+    padding:18px;
+    border-radius:20px;
+}
+
+.experience b{
+    font-size:14px;
+}
+
+.experience p{
+    font-size:10px;
+    color:#876f64;
+    line-height:1.7;
+    margin-top:7px;
+}
+
+.secondary{
+    width:100%;
+    border:1px solid #8b5b46;
+    background:white;
+    color:#8b5b46;
+    padding:12px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-top:10px;
+}
+
+/* ================= BOTTOM NAV ================= */
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    width:430px;
+    max-width:100%;
+    height:72px;
+    background:rgba(255,250,246,.98);
+    border-top:1px solid #eaded5;
+    display:flex;
+    justify-content:space-around;
+    align-items:center;
+    z-index:60;
+}
+
+.nav-item{
+    text-align:center;
+    color:#9b8175;
+    font-size:9px;
+    cursor:pointer;
+}
+
+.nav-icon{
+    font-size:21px;
+    margin-bottom:4px;
+}
+
+.nav-item.active{
+    color:#8b5b46;
+    font-weight:bold;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    background:rgba(40,28,22,.62);
+    display:none;
+    align-items:flex-end;
+    justify-content:center;
+    z-index:100;
+}
+
+.modal-box{
+    width:430px;
+    max-width:100%;
+    max-height:94vh;
+    overflow-y:auto;
+    background:#fffaf6;
+    border-radius:27px 27px 0 0;
+    padding:20px;
+    animation:slideUp .25s ease;
+}
+
+@keyframes slideUp{
+    from{
+        transform:translateY(100%);
+    }
+    to{
+        transform:translateY(0);
+    }
+}
+
+.back{
+    border:0;
+    background:#f0e7e1;
+    color:#694b3d;
+    padding:9px 14px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:11px;
+    margin-bottom:14px;
+}
+
+/* ================= DETAIL ================= */
+
+.detail-image{
+    width:100%;
+    height:290px;
+    object-fit:cover;
+    border-radius:18px;
+    background:#eee5df;
+}
+
+.detail-title{
+    font-size:22px;
+    font-weight:bold;
+    margin-top:12px;
+}
+
+.detail-maker{
+    font-size:10px;
+    color:#957c70;
+    margin-top:4px;
+}
+
+.detail-price{
+    font-size:22px;
+    color:#8b5b46;
+    font-weight:bold;
+    margin-top:7px;
+}
+
+.description{
+    font-size:11px;
+    line-height:1.7;
+    color:#786960;
+    margin-top:9px;
+}
+
+.primary{
+    width:100%;
+    border:0;
+    background:#8b5b46;
+    color:white;
+    padding:13px;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:bold;
+    margin-top:12px;
+}
+
+/* ================= CUSTOM COLOR LAB ================= */
+
+.custom-preview{
+    background:#f1e8e1;
+    border-radius:22px;
+    padding:20px;
+    margin-top:15px;
+    text-align:center;
+}
+
+/* กระเป๋าตัวอย่าง */
+
+.preview-bag{
+    width:195px;
+    height:155px;
+    margin:50px auto 15px;
+    background:#e5a48e;
+    border-radius:22px 22px 28px 28px;
+    position:relative;
+
+    box-shadow:
+        inset 0 0 0 7px rgba(255,255,255,.18),
+        0 12px 22px rgba(80,50,40,.18);
+
+    transition:.35s;
+}
+
+/* หูกระเป๋า */
+
+.preview-bag::before{
+    content:"";
+    position:absolute;
+
+    width:105px;
+    height:58px;
+
+    border:12px solid #e5a48e;
+    border-bottom:0;
+
+    border-radius:70px 70px 0 0;
+
+    left:33px;
+    top:-48px;
+
+    transition:.35s;
+}
+
+/* ลายถัก */
+
+.preview-bag::after{
+    content:"✿  ✿  ✿";
+    position:absolute;
+    left:15px;
+    right:15px;
+    top:55px;
+
+    font-size:29px;
+    color:#fff8ee;
+    letter-spacing:4px;
+}
+
+/* ================= YARN ================= */
+
+.yarn-title{
+    display:flex;
+    justify-content:space-between;
+    margin-top:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.selected-name{
+    color:#8b5b46;
+}
+
+.yarn-grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:12px;
+    margin-top:14px;
+}
+
+.yarn{
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    position:relative;
+    cursor:pointer;
+
+    box-shadow:
+        inset 4px 4px 8px rgba(255,255,255,.45),
+        inset -5px -5px 8px rgba(0,0,0,.14),
+        0 2px 5px rgba(0,0,0,.15);
+
+    transition:.2s;
+}
+
+.yarn:hover{
+    transform:scale(1.1);
+}
+
+.yarn::before{
+    content:"";
+    position:absolute;
+    inset:8px;
+    border:2px solid rgba(255,255,255,.28);
+    border-radius:50%;
+}
+
+.yarn::after{
+    content:"";
+    position:absolute;
+    width:13px;
+    height:13px;
+    background:rgba(255,255,255,.22);
+    border-radius:50%;
+    left:16px;
+    top:16px;
+}
+
+.yarn.selected{
+    outline:3px solid #8b5b46;
+    outline-offset:3px;
+    transform:scale(1.08);
+}
+
+/* COLORS */
+
+.cream{background:#eee2cf;}
+.beige{background:#c8a889;}
+.peach{background:#e5a48e;}
+.pink{background:#e29aa7;}
+.red{background:#b9444e;}
+.orange{background:#e8903e;}
+.yellow{background:#e5c55e;}
+.sage{background:#9eaf82;}
+.green{background:#58785c;}
+.mint{background:#8fc0b1;}
+.blue{background:#7599ba;}
+.sky{background:#9dc8d6;}
+.purple{background:#8d7cae;}
+.lavender{background:#b7a2ca;}
+.brown{background:#79584a;}
+.mocha{background:#9a7561;}
+.gray{background:#96928e;}
+.black{background:#353434;}
+
+/* ================= COLOR INFO ================= */
+
+.color-preview{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:15px;
+    padding:12px;
+    margin-top:15px;
+}
+
+.color-ball{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+
+    box-shadow:
+        inset 5px 5px 10px rgba(255,255,255,.45),
+        inset -5px -5px 10px rgba(0,0,0,.15);
+}
+
+.color-preview b{
+    font-size:12px;
+}
+
+.color-preview span{
+    display:block;
+    color:#92796c;
+    font-size:9px;
+    margin-top:4px;
+}
+
+/* ================= PATTERN ================= */
+
+.pattern-title{
+    margin-top:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.patterns{
+    display:flex;
+    gap:9px;
+    margin-top:10px;
+}
+
+.pattern{
+    flex:1;
+    border:1px solid #e3d5cb;
+    background:white;
+    border-radius:12px;
+    padding:10px;
+    text-align:center;
+    cursor:pointer;
+    font-size:10px;
+}
+
+.pattern.active{
+    background:#8b5b46;
+    color:white;
+}
+
+/* ================= COLOR MATCH ================= */
+
+.palette{
+    height:70px;
+    display:flex;
+    border-radius:15px;
+    overflow:hidden;
+    margin-top:15px;
+}
+
+.palette div{
+    flex:1;
+}
+
+.recommend{
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:16px;
+    padding:14px;
+    margin-top:15px;
+}
+
+.recommend h3{
+    font-size:13px;
+}
+
+.recommend p{
+    font-size:10px;
+    color:#8f786d;
+    line-height:1.7;
+    margin-top:6px;
+}
+
+/* ================= MAKER ================= */
+
+.maker-card{
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:18px;
+    padding:15px;
+    display:flex;
+    gap:12px;
+    margin-top:15px;
+}
+
+.avatar{
+    width:55px;
+    height:55px;
+    border-radius:50%;
+    background:#ddc0ae;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:27px;
+}
+
+.maker-card b{
+    font-size:14px;
+}
+
+.maker-card p{
+    font-size:10px;
+    color:#91796e;
+    margin-top:5px;
+}
+
+/* ================= TIMELINE ================= */
+
+.timeline{
+    margin-top:18px;
+}
+
+.timeline-item{
+    display:flex;
+    gap:12px;
+    margin-bottom:18px;
+}
+
+.timeline-icon{
+    width:36px;
+    height:36px;
+    background:#eadbd1;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-shrink:0;
+}
+
+.timeline-text b{
+    font-size:12px;
+}
+
+.timeline-text p{
+    font-size:10px;
+    color:#8e786d;
+    margin-top:4px;
+}
+
+/* ================= STATUS ================= */
+
+.status{
+    background:white;
+    border:1px solid #eaded5;
+    border-radius:18px;
+    padding:15px;
+    margin-top:15px;
+}
+
+.status-top{
+    display:flex;
+    justify-content:space-between;
+    font-size:11px;
+}
+
+.progress{
+    height:8px;
+    background:#eaded5;
+    border-radius:10px;
+    margin-top:13px;
+    overflow:hidden;
+}
+
+.progress div{
+    width:72%;
+    height:100%;
+    background:#8b5b46;
+}
+
+/* ================= CART ================= */
+
+.cart-item{
+    display:flex;
+    gap:10px;
+    padding:12px 0;
+    border-bottom:1px solid #eaded5;
+}
+
+.cart-item img{
+    width:75px;
+    height:75px;
+    object-fit:cover;
+    border-radius:12px;
+    background:#eee5df;
+}
+
+.cart-info{
+    flex:1;
+}
+
+.cart-info b{
+    font-size:12px;
+}
+
+.cart-info p{
+    color:#91796e;
+    font-size:9px;
+    margin-top:4px;
+}
+
+.cart-price{
+    color:#8b5b46;
+    font-weight:bold;
+    margin-top:6px;
+}
+
+/* ================= INPUT ================= */
+
+.input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd0c7;
+    border-radius:10px;
+    margin-top:10px;
+    background:white;
+    outline:none;
+}
+
+textarea.input{
+    resize:none;
+}
+
+/* ================= TOAST ================= */
+
+.toast{
+    position:fixed;
+    bottom:88px;
+    left:50%;
+    transform:translateX(-50%);
+    background:#30251f;
+    color:white;
+    padding:11px 18px;
+    border-radius:30px;
+    font-size:11px;
+    display:none;
+    z-index:200;
+    white-space:nowrap;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:380px){
+
+    .yarn-grid{
+        grid-template-columns:repeat(5,1fr);
+    }
+
+    .yarn{
+        width:42px;
+        height:42px;
+    }
+
+    .products{
+        gap:8px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- ======================================================
+HEADER
+====================================================== -->
+
+<header class="header">
+
+    <div class="logo">
+
+        <div class="logo-icon">
+            🧶
+        </div>
+
+        <div>
+            <div class="logo-name">
+                ARAYA SHOP
+            </div>
+
+            <div class="logo-sub">
+                HANDMADE KNIT STUDIO
+            </div>
+        </div>
+
+    </div>
+
+    <div class="header-buttons">
+
+        <button
+            class="icon-btn"
+            onclick="openCart()">
+            🛒
+        </button>
+
+        <button
+            class="icon-btn"
+            onclick="openAccount()">
+            👤
+        </button>
+
+    </div>
+
+</header>
+
+
+<!-- ======================================================
+CONTENT
+====================================================== -->
+
+<main class="content">
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <small>
+        HANDMADE • CROCHET • MADE WITH LOVE
+    </small>
+
+    <h1>
+        งานถักที่<br>
+        เป็นตัวคุณ
+    </h1>
+
+    <p>
+        เลือกสินค้าถักแฮนด์เมด
+        ออกแบบสีไหมพรม
+        และสร้างสินค้าในแบบของคุณเอง
+    </p>
+
+    <button onclick="openCustomLab()">
+        ✨ เริ่มออกแบบสินค้า
+    </button>
+
+</section>
+
+
+<!-- QUICK MENU -->
+
+<div class="quick">
+
+    <div
+        class="quick-card"
+        onclick="openCustomLab()">
+
+        <div class="qicon">
+            🎨
+        </div>
+
+        <b>
+            Color Design
+        </b>
+
+        <span>
+            ดูสีจริงก่อนสั่ง
+        </span>
+
+    </div>
+
+
+    <div
+        class="quick-card"
+        onclick="openColorAI()">
+
+        <div class="qicon">
+            🌈
+        </div>
+
+        <b>
+            Color Match
+        </b>
+
+        <span>
+            ช่วยจับคู่สี
+        </span>
+
+    </div>
+
+
+    <div
+        class="quick-card"
+        onclick="openMaker()">
+
+        <div class="qicon">
+            🧑‍🎨
+        </div>
+
+        <b>
+            Maker Story
+        </b>
+
+        <span>
+            รู้จักช่างถัก
+        </span>
+
+    </div>
+
+
+    <div
+        class="quick-card"
+        onclick="openStatus()">
+
+        <div class="qicon">
+            🧵
+        </div>
+
+        <b>
+            Knit Journey
+        </b>
+
+        <span>
+            ติดตามงาน
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- PRODUCTS -->
+
+<div class="section-title">
+
+    <h2>
+        🧶 สินค้าถักแนะนำ
+    </h2>
+
+    <button onclick="showAll()">
+        ดูทั้งหมด →
+    </button>
+
+</div>
+
+
+<div class="categories">
+
+    <div
+        class="category active"
+        onclick="filterProduct('ทั้งหมด',this)">
+        ทั้งหมด
+    </div>
+
+    <div
+        class="category"
+        onclick="filterProduct('กระเป๋า',this)">
+        กระเป๋าถัก
+    </div>
+
+    <div
+        class="category"
+        onclick="filterProduct('ตุ๊กตา',this)">
+        ตุ๊กตาถัก
+    </div>
+
+    <div
+        class="category"
+        onclick="filterProduct('ดอกไม้',this)">
+        ดอกไม้ถัก
+    </div>
+
+</div>
+
+
+<div
+    class="products"
+    id="products">
+</div>
+
+
+<!-- EXPERIENCE -->
+
+<div class="section-title">
+
+    <h2>
+        ✨ ARAYA EXPERIENCE
+    </h2>
+
+</div>
+
+
+<div class="experience">
+
+    <b>
+        เลือกสีจริง → ดูตัวอย่าง → สั่งทำ
+    </b>
+
+    <p>
+        จุดเด่นของ ARAYA SHOP คือให้ลูกค้า
+        ทดลองเลือกสีไหมพรมและดูตัวอย่างสินค้า
+        ก่อนตัดสินใจสั่งทำ
+    </p>
+
+    <button
+        class="secondary"
+        onclick="openCustomLab()">
+
+        🎨 ทดลองเลือกสีไหมพรม
+
+    </button>
+
+</div>
+
+</main>
+
+
+<!-- ======================================================
+BOTTOM NAV
+====================================================== -->
+
+<nav class="bottom-nav">
+
+    <div
+        class="nav-item active"
+        onclick="home()">
+
+        <div class="nav-icon">
+            🏠
+        </div>
+
+        หน้าแรก
+
+    </div>
+
+
+    <div
+        class="nav-item"
+        onclick="openCustomLab()">
+
+        <div class="nav-icon">
+            🎨
+        </div>
+
+        ออกแบบ
+
+    </div>
+
+
+    <div
+        class="nav-item"
+        onclick="openStatus()">
+
+        <div class="nav-icon">
+            🧵
+        </div>
+
+        งานของฉัน
+
+    </div>
+
+
+    <div
+        class="nav-item"
+        onclick="openAccount()">
+
+        <div class="nav-icon">
+            👤
+        </div>
+
+        บัญชี
+
+    </div>
+
+</nav>
+
+
+<!-- ======================================================
+MODAL
+====================================================== -->
+
+<div
+    class="modal"
+    id="modal"
+    onclick="
+    if(event.target===this){
+        closeModal()
+    }">
+
+    <div class="modal-box">
+
+        <div id="modalContent"></div>
+
+    </div>
+
+</div>
+
+
+<div
+    class="toast"
+    id="toast">
+</div>
+
+</div>
+
+
+<script>
+
+/* ======================================================
+PRODUCT DATA
+====================================================== */
+
+const products = [
+
+    {
+        id:1,
+        name:"Daisy Crochet Bag",
+        category:"กระเป๋า",
+        maker:"พี่มะลิ",
+        price:890,
+        image: "image_0_0.png",
+        desc:
+        "กระเป๋าโครเชต์ถักมือ ลายดอกไม้ เนื้องานละเอียด เหมาะสำหรับใช้ในชีวิตประจำวัน",
+        colors:[
+            "#eee2cf",
+            "#e5a48e",
+            "#9eaf82"
+        ]
+    },
+
+
+    {
+        id:2,
+        name:"Handmade Crochet Doll",
+        category:"ตุ๊กตา",
+        maker:"พี่แอน",
+        price:590,
+        image: "image_0_1.png",
+        desc:
+        "ตุ๊กตาโครเชต์แฮนด์เมด ถักด้วยมือ เหมาะสำหรับเป็นของขวัญและของสะสม",
+        colors:[
+            "#c98f7c",
+            "#eee2cf",
+            "#9a7561"
+        ]
+    },
+
+
+    {
+        id:3,
+        name:"Crochet Flower Bag",
+        category:"กระเป๋า",
+        maker:"พี่ฝน",
+        price:690,
+        image: "image_0_2.png",
+        desc:
+        "กระเป๋าถักโครเชต์สไตล์มินิมอล น้ำหนักเบา ใช้ได้ทุกวัน",
+        colors:[
+            "#e29aa7",
+            "#e5c55e",
+            "#58785c"
+        ]
+    },
+
+
+    {
+        id:4,
+        name:"Pink Flower Crochet Bag",
+        category:"กระเป๋า",
+        maker:"พี่มะลิ",
+        price:850,
+        image: "image_0_3.png",
+        desc:
+        "กระเป๋าถักลายดอกไม้ งาน handmade สีสันน่ารัก",
+        colors:[
+            "#e29aa7",
+            "#eee2cf",
+            "#9eaf82"
+        ]
+    },
+
+
+    {
+        id:5,
+        name:"Crochet Handmade Tote",
+        category:"กระเป๋า",
+        maker:"พี่แอน",
+        price:790,
+        image: "image_0_4.png",
+        desc:
+        "กระเป๋าถักมือสไตล์ Cozy มีรายละเอียดลายถักสวยงาม",
+        colors:[
+            "#c8a889",
+            "#eee2cf",
+            "#9a7561"
+        ]
+    },
+
+
+    {
+        id:6,
+        name:"Crochet Doll",
+        category:"ตุ๊กตา",
+        maker:"พี่ฝน",
+        price:620,
+        image: "image_0_5.png",
+        desc:
+        "ตุ๊กตาถักมือสไตล์ Amigurumi รายละเอียดน่ารัก เหมาะสำหรับเป็นของขวัญ",
+        colors:[
+            "#e5c55e",
+            "#e8903e",
+            "#9eaf82"
+        ]
+    }
+
+];
+
+
+/* ======================================================
+RENDER PRODUCTS
+====================================================== */
+
+function renderProducts(list=products){
+
+    const box =
+    document.getElementById("products");
+
+    box.innerHTML="";
+
+    list.forEach(p=>{
+
+        box.innerHTML += `
+
+        <div class="product">
+
+            <button
+                class="favorite"
+                onclick="favorite(event)">
+                ♡
+            </button>
+
+            <img
+                src="${p.image}"
+                alt="${p.name}"
+                loading="lazy">
+
+            <div class="product-info">
+
+                <span class="tag">
+                    ${p.category}
+                </span>
+
+                <div class="product-name">
+                    ${p.name}
+                </div>
+
+                <div class="maker">
+                    🧶 ถักโดย ${p.maker}
+                </div>
+
+                <div class="price">
+                    ฿${p.price.toLocaleString()}
+                </div>
+
+                <button
+                    class="buy"
+                    onclick="openProduct(${p.id})">
+
+                    ดูสินค้า
+
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
+
+renderProducts();
+
+
+/* ======================================================
+PRODUCT DETAIL
+====================================================== */
+
+let selectedProduct=null;
+
+
+function openProduct(id){
+
+    selectedProduct =
+    products.find(x=>x.id===id);
+
+
+    document.getElementById("modalContent").innerHTML = `
+
+        <button
+            class="back"
+            onclick="closeModal()">
+
+            ← ย้อนกลับ
+
+        </button>
+
+
+        <img
+            class="detail-image"
+            src="${selectedProduct.image}">
+
+
+        <div class="detail-title">
+            ${selectedProduct.name}
+        </div>
+
+
+        <div class="detail-maker">
+            🧑‍🎨 Handmade by ${selectedProduct.maker}
+        </div>
+
+
+        <div class="detail-price">
+            ฿${selectedProduct.price.toLocaleString()}
+        </div>
+
+
+        <div class="description">
+            ${selectedProduct.desc}
+        </div>
+
+
+        <button
+            class="primary"
+            onclick="openCustomLab()">
+
+            🎨 ทดลองเปลี่ยนสีสินค้า
+
+        </button>
+
+
+        <button
+            class="secondary"
+            onclick="addCart()">
+
+            🛒 เพิ่มลงตะกร้า
+
+        </button>
+
+    `;
+
+
+    openModal();
+
+}
+
+
+/* ======================================================
+MODAL ACTIONS
+====================================================== */
+
+function openModal(){
+    document.getElementById("modal").style.display = "flex";
+}
+
+function closeModal(){
+    document.getElementById("modal").style.display = "none";
+}
+
+function addCart(){
+    showToast("เพิ่มลงตะกร้าแล้ว!");
+    closeModal();
+}
+
+function showToast(msg){
+    const toast = document.getElementById("toast");
+    toast.textContent = msg;
+    toast.style.display = "block";
+    setTimeout(()=>{
+        toast.style.display = "none";
+    },2000);
+}
+
+function favorite(e){
+    e.stopPropagation();
+    showToast("เพิ่มในรายการโปรด!");
+}
+
+/* ======================================================
+TEMPORARY ACTIONS (placeholder)
+====================================================== */
+function openCart(){showToast("ตะกร้าสินค้า (กำลังพัฒนา)");}
+function openAccount(){showToast("บัญชีผู้ใช้ (กำลังพัฒนา)");}
+function openColorAI(){showToast("Color Match AI (กำลังพัฒนา)");}
+function openMaker(){showToast("เรื่องราวช่างถัก (กำลังพัฒนา)");}
+function openStatus(){showToast("ติดตามสถานะงานถัก (กำลังพัฒนา)");}
+function showAll(){showToast("แสดงสินค้าทั้งหมด");}
+function filterProduct(cat,el){
+    // Update category active style
+    const cats = document.querySelectorAll('.category');
+    cats.forEach(c=>c.classList.remove('active'));
+    el.classList.add('active');
+
+    if(cat === 'ทั้งหมด'){
+        renderProducts(products);
+    } else {
+        const filtered = products.filter(p=>p.category===cat);
+        renderProducts(filtered);
+    }
+}
+function home(){showToast("หน้าแรก");}
+function selectPattern(el){
+    const patts = document.querySelectorAll('.pattern');
+    patts.forEach(p=>p.classList.remove('active'));
+    el.classList.add('active');
+    showToast("เลือกลายถักแล้ว!");
+}
+function openCustomLab(){showToast("หน้าออกแบบสีไหมพรม (กำลังพัฒนา)");}
+
+</script>
+</body>
+</html>
